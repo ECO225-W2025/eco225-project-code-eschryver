@@ -1,6 +1,14 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
+\setbeamertemplate{navigation symbols}{}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
 \usetheme{Madrid}
 %%% Colors
 \definecolor{ForestGreen}{RGB}{34,139,34}
@@ -19,11 +27,16 @@
     \item Housing discrimination: long-running problem in US
     \item Common historical tactics: racial deed covenants, redlining, white flight, and blockbusting (Rothstein, 2017).
     \item Long-term effects:
-    Deed covenants → Improved relative neighborhood quality (Sood, Ehrman-Solberg, 2024).
-Redlining → Higher localized poverty (Appel, Nickerson, 2016).
-Majority-Black neighborhoods → Lower quality of opportunity (Chetty et al., 2014).
+    
+    \small
+    Deed covenants improve relative neighborhood quality (Sood, Ehrman-Solberg, 2024), 
+    Redlining localizes poverty (Appel, Nickerson, 2016),
+    Majority-Black neighborhoods still have lower quality of opportunity (Chetty et al., 2014),
 
+    \normalsize
     \item Modern discrimination persists:
+    
+    \small
     Lending disparities (Quillian, Lee, Honoré, 2020).
     Racial steering in real estate (Glenn, 2018).
     
@@ -33,29 +46,19 @@ Majority-Black neighborhoods → Lower quality of opportunity (Chetty et al., 20
 \begin{frame}
 \frametitle{Introduction}
 \begin{itemize}
-    \item Investigates whether minority move-ins suppress home-value appreciation, a key claim behind 1950s blockbusting.
-    \item Uses loan data (Fannie Mae \& Freddie Mac), ACS data for normalization, and Zillow ZHVI for home prices.
+    \item Investigates whether minority move-ins suppress home-value appreciation.
+    \item Uses loan data (Fannie Mae \& Freddie Mac), ACS (Census) data for normalization, and Zillow ZHVI for home prices.
     \item Methodology:
-    Selects majority-white zip codes with minority move-ins (2009-2010).
-    Tracks change in minority move-in share (2012-2013) as treatment.
-    Analyzes home price appreciation over six years (until 2019).    
+    \begin{itemize}
+        \item Select majority-white zip codes with minority move-ins (2009-2010).
+        \item Track change in minority move-in share (2012-2013) as treatment.
+        \item Analyze home price appreciation over following six years (until 2019).
+    \end{itemize}
     \item Findings: The relationship between minority move-in share and home-value appreciation is unclear—while the treatment group shows lower appreciation, variation is extremely high.
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Methodology}
-\begin{itemize}
-    \item Description of methods used
-    \item Data collection techniques
-    \item Analysis processes
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Data}
-    \includegraphics[width=\textwidth]{project_files/project_40_0.png}
-\end{frame}
+\framedgraphic{Data}{project_files/project_40_0.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Results}
@@ -65,27 +68,19 @@ Majority-Black neighborhoods → Lower quality of opportunity (Chetty et al., 20
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-    \frametitle{Results}
-    \includegraphics[width=\textwidth]{project_files/project_43_1.png}
-\end{frame}
+\framedgraphic{Results}{project_files/project_43_1.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-    \frametitle{Results}
-    \includegraphics[width=\textwidth]{project_files/project_46_0.png}
-\end{frame}
+\framedgraphic{Results}{project_files/project_46_0.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-    \frametitle{Results}
-    \includegraphics[width=\textwidth]{project_files/project_49_1.png}
-\end{frame}
+\framedgraphic{Results}{project_files/project_49_1.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Conclusion}
 \begin{itemize}
-    \item Summary of findings
-    \item Limitations of study
-    \item Future research
+    \item There is little to no clear association between an increase in minority move-ins and changes in home values at the zip-code level.
+    \item The analysis normalizes home value changes to the MSA and initial home values for a more accurate comparison.
+    \item While controlling for initial home values and MSA-level appreciation, the data does not provide strong evidence that minority move-ins impact future home values.
+    \item Due to data limitations, the extent to which minority move-ins influence home values remains inconclusive.
 \end{itemize}
 \end{frame}
 \end{document}
