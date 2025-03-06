@@ -2,9 +2,9 @@
 
 ## Presentation
 
-- [ ] Modify scatterplot to only show one
-- [ ] Change intro to provide more background (maybe methodology slide?)
-- [ ] Summary tables
+- [x] Modify scatterplot to only show one
+- [x] Change intro to provide more background (maybe methodology slide?)
+- [x] Summary tables
 - [ ] Recording
 
 ## Report
