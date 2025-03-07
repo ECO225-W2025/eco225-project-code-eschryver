@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.5)  5 MAR 2025 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.5)  7 MAR 2025 08:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -703,49 +703,45 @@ Dictionary: translator-theorem-dictionary, Language: English
 
 {C:/Users/thest/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
 
-] [3
-
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 106.
  (C:\Users\thest\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 106.
  (C:\Users\thest\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 83.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 106.
  (C:\Users\thest\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-) [4
-
-] [5
+) [3
 
 ]
-<project_files/project_43_1.png, id=71, 753.7761pt x 523.9575pt>
-File: project_files/project_43_1.png Graphic file (type png)
-<use project_files/project_43_1.png>
-Package pdftex.def Info: project_files/project_43_1.png  used on input line 108.
-(pdftex.def)             Requested size: 280.13496pt x 194.72469pt.
- [6
-
- <./project_files/project_43_1.png>]
-<project_files/project_39_0.png, id=81, 992.70876pt x 792.9625pt>
+<project_files/project_39_0.png, id=57, 992.70876pt x 792.9625pt>
 File: project_files/project_39_0.png Graphic file (type png)
 <use project_files/project_39_0.png>
 Package pdftex.def Info: project_files/project_39_0.png  used on input line 110.
 (pdftex.def)             Requested size: 243.76866pt x 194.71915pt.
- [7
+ [4
 
  <./project_files/project_39_0.png>]
-<project_files/project_49_1.png, id=91, 841.9455pt x 635.2533pt>
+<project_files/project_49_1.png, id=67, 841.9455pt x 635.2533pt>
 File: project_files/project_49_1.png Graphic file (type png)
 <use project_files/project_49_1.png>
 Package pdftex.def Info: project_files/project_49_1.png  used on input line 112.
 (pdftex.def)             Requested size: 258.08412pt x 194.72614pt.
- [8
+ [5
 
- <./project_files/project_49_1.png>] [9
+ <./project_files/project_49_1.png>]
+<project_files/output.png, id=76, 1554.5277pt x 769.6755pt>
+File: project_files/output.png Graphic file (type png)
+<use project_files/output.png>
+Package pdftex.def Info: project_files/output.png  used on input line 114.
+(pdftex.def)             Requested size: 393.28012pt x 194.72028pt.
+ [6
+
+ <./project_files/output.png>] [7
 
 ]
 \tf@nav=\write6
@@ -766,17 +762,17 @@ Package rerunfilecheck Info: File `presentation_1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21817 strings out of 474485
- 431313 string characters out of 5743735
- 1940542 words of memory out of 5000000
- 43623 multiletter control sequences out of 15000+600000
+ 21808 strings out of 474485
+ 431197 string characters out of 5743735
+ 1937542 words of memory out of 5000000
+ 43618 multiletter control sequences out of 15000+600000
  565418 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,520b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,520b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/thest/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/thest/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/thest/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/thest/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on c:\Users\thest\Documents\GitHub\225\eco225-project-code-eschryver\documents\presentation_1\aux_files\presentation_1.pdf (9 pages, 343449 bytes).
+Output written on c:\Users\thest\Documents\GitHub\225\eco225-project-code-eschryver\documents\presentation_1\aux_files\presentation_1.pdf (7 pages, 637145 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

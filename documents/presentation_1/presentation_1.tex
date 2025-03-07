@@ -26,7 +26,7 @@
 \begin{frame}
 \frametitle{Introduction}
 \begin{itemize}
-    \item Investigates whether minority move-ins suppress home-value appreciation.
+    \item \textbf{Research Question:} Do minority move-ins suppress neighborhood home-value appreciation?
     \item Uses loan data (Fannie Mae \& Freddie Mac) for move-ins, ACS (Census) data for normalization, and zip-code level Zillow ZHVI for home prices.
     \item Methodology:
     \begin{itemize}
@@ -38,49 +38,49 @@
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-    \frametitle{Background}
-    \begin{itemize}
-        \item Housing discrimination: long-running problem in US
-        \item Common historical tactics: racial deed covenants, redlining, white flight, and blockbusting (Rothstein, 2017).
-        \item Long-term effects:
+% \begin{frame}
+%     \frametitle{Background}
+%     \begin{itemize}
+%         \item Housing discrimination: long-running problem in US
+%         \item Common historical tactics: racial deed covenants, redlining, white flight, and blockbusting (Rothstein, 2017).
+%         \item Long-term effects:
         
-        \small
-        - Deed covenants improve relative neighborhood quality (Sood, Ehrman-Solberg, 2024), \\
-        - Redlining localizes poverty (Appel, Nickerson, 2016), \\
-        - Majority-Black neighborhoods maintain lower quality of opportunity (Chetty et al., 2014),
+%         \small
+%         - Deed covenants improve relative neighborhood quality (Sood, Ehrman-Solberg, 2024), \\
+%         - Redlining localizes poverty (Appel, Nickerson, 2016), \\
+%         - Majority-Black neighborhoods maintain lower quality of opportunity (Chetty et al., 2014),
     
-        \normalsize
-        \item Modern discrimination persists:
+%         \normalsize
+%         \item Modern discrimination persists:
         
-        \small
-        - Lending disparities (Quillian, Lee, Honoré, 2020), \\
-        - Racial steering in real estate (Glenn, 2018)
+%         \small
+%         - Lending disparities (Quillian, Lee, Honoré, 2020), \\
+%         - Racial steering in real estate (Glenn, 2018)
         
-    \end{itemize}
-\end{frame}
+%     \end{itemize}
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \framedgraphic{Data}{project_files/project_40_0.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-    \frametitle{Data: Home Value Appreciation (\%) (difference to MSA average) (by year)}
-        \centering
-        \begin{tabular}{lrrrrrrrr}
-            \toprule
-            Year & count & mean & std & min & 25\% & 50\% & 75\% & max \\
-            \midrule
-            \textbf{2011} & 11376 & 0.0016 & 0.0375 & -0.2958 & -0.0149 & 0.0038 & 0.0213 & 0.2751 \\
-            \textbf{2012} & 11376 & 0.0017 & 0.0587 & -0.4130 & -0.0258 & 0.0038 & 0.0330 & 0.3739 \\
-            \textbf{2013} & 11376 & -0.0005 & 0.0782 & -0.4971 & -0.0384 & 0.0004 & 0.0395 & 0.6301 \\
-            \textbf{2014} & 11376 & -0.0005 & 0.0962 & -0.6182 & -0.0480 & -0.0024 & 0.0442 & 0.8238 \\
-            \textbf{2015} & 11376 & 0.0000 & 0.1192 & -0.6584 & -0.0599 & -0.0053 & 0.0506 & 1.1286 \\
-            \textbf{2016} & 11376 & -0.0011 & 0.1439 & -0.7405 & -0.0726 & -0.0092 & 0.0550 & 1.4750 \\
-            \textbf{2017} & 11376 & -0.0010 & 0.1724 & -0.8327 & -0.0873 & -0.0125 & 0.0610 & 1.7768 \\
-            \textbf{2018} & 11376 & -0.0006 & 0.2089 & -0.9294 & -0.1023 & -0.0175 & 0.0696 & 2.3199 \\
-            \textbf{2019} & 11376 & 0.0004 & 0.2312 & -1.0062 & -0.1133 & -0.0198 & 0.0783 & 2.7326 \\
-            \bottomrule
-        \end{tabular}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Data: Home Value Appreciation (\%) (difference to MSA average) (by year)}
+%         \centering
+%         \begin{tabular}{lrrrrrrrr}
+%             \toprule
+%             Year & count & mean & std & min & 25\% & 50\% & 75\% & max \\
+%             \midrule
+%             \textbf{2011} & 11376 & 0.0016 & 0.0375 & -0.2958 & -0.0149 & 0.0038 & 0.0213 & 0.2751 \\
+%             \textbf{2012} & 11376 & 0.0017 & 0.0587 & -0.4130 & -0.0258 & 0.0038 & 0.0330 & 0.3739 \\
+%             \textbf{2013} & 11376 & -0.0005 & 0.0782 & -0.4971 & -0.0384 & 0.0004 & 0.0395 & 0.6301 \\
+%             \textbf{2014} & 11376 & -0.0005 & 0.0962 & -0.6182 & -0.0480 & -0.0024 & 0.0442 & 0.8238 \\
+%             \textbf{2015} & 11376 & 0.0000 & 0.1192 & -0.6584 & -0.0599 & -0.0053 & 0.0506 & 1.1286 \\
+%             \textbf{2016} & 11376 & -0.0011 & 0.1439 & -0.7405 & -0.0726 & -0.0092 & 0.0550 & 1.4750 \\
+%             \textbf{2017} & 11376 & -0.0010 & 0.1724 & -0.8327 & -0.0873 & -0.0125 & 0.0610 & 1.7768 \\
+%             \textbf{2018} & 11376 & -0.0006 & 0.2089 & -0.9294 & -0.1023 & -0.0175 & 0.0696 & 2.3199 \\
+%             \textbf{2019} & 11376 & 0.0004 & 0.2312 & -1.0062 & -0.1133 & -0.0198 & 0.0783 & 2.7326 \\
+%             \bottomrule
+%         \end{tabular}
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
     \frametitle{Data: Minority Move-ins}
@@ -105,11 +105,13 @@
         I = Initial Period, T = Treatment Period
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\framedgraphic{Results}{project_files/project_43_1.png}
+% \framedgraphic{Results}{project_files/project_43_1.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \framedgraphic{Results}{project_files/project_39_0.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \framedgraphic{Results}{project_files/project_49_1.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\framedgraphic{Results}{project_files/output.png}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Conclusion}
