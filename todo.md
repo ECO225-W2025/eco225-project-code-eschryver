@@ -39,3 +39,5 @@
 ## Going beyond
 
 - [ ] Try higher temporality? more years
+- [ ] Income level
+- [ ] Political affiliation
