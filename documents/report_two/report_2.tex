@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx}
+<<<<<<< HEAD
 \usepackage{amsmath}
 \usepackage{lscape}
 \title{Report 2}
@@ -17,6 +18,19 @@ Both of these maps focus on Boston, a particular metro area that is good for ana
 \section{Regressions}
 \begin{table}[!htbp] \centering
 \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+=======
+\usepackage{lscape}
+
+\title{"Blockbusting" in the 21st Century?: Minority Move-ins and Neighborhood Home Value Appreciation}
+\author{Emerson Schryver}
+\begin{document}
+\maketitle
+\section{Research Question}
+My research question is: "Does an increase in the share of minority move-ins in a majority-white neighborhood suppress home value appreciation?"
+\begin{landscape}
+\begin{table}[!htbp] \centering
+    \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+>>>>>>> 072ffe1ffa774bc60a3a658f39a783ac3a1108f0
     \\[-1.8ex]\hline
     \hline \\[-1.8ex]
     & \multicolumn{4}{c}{\textit{Dependent variable: value\_ratio\_2017}} \\
@@ -24,6 +38,7 @@ Both of these maps focus on Boston, a particular metro area that is good for ana
     \\[-1.8ex] & \multicolumn{4}{c}{Home Value Change (\%) (2010-2017)}  \\
     \\[-1.8ex] & (1) & (2) & (3) & (4) \\
     \hline \\[-1.8ex]
+<<<<<<< HEAD
      $\frac{\text{Ratio (T)}}{\text{Ratio (I)}}$ & 0.075$^{***}$ & 0.032$^{**}$ & & \\
     & (0.026) & (0.015) & & \\
      MMI (I) & & & 0.003$^{***}$ & \\
@@ -42,16 +57,41 @@ Both of these maps focus on Boston, a particular metro area that is good for ana
     & & (0.007) & (0.007) & (0.007) \\
     intercept & 1.336$^{***}$ & 0.133$^{***}$ & 0.156$^{***}$ & 0.151$^{***}$ \\
     & (0.003) & (0.010) & (0.010) & (0.010) \\
+=======
+     early\_late\_ratio & 0.075$^{***}$ & 0.032$^{**}$ & & \\
+    & (0.026) & (0.015) & & \\
+     early\_mmi & & & 0.003$^{***}$ & \\
+    & & & (0.000) & \\
+     early\_mmi\_ratio & & & & 0.030$^{**}$ \\
+    & & & & (0.015) \\
+     early\_move\_ins & & & -0.000$^{***}$ & \\
+    & & & (0.000) & \\
+     intercept & 1.336$^{***}$ & 0.133$^{***}$ & 0.156$^{***}$ & 0.151$^{***}$ \\
+    & (0.003) & (0.010) & (0.010) & (0.010) \\
+     late\_mmi & & & 0.000$^{}$ & \\
+    & & & (0.000) & \\
+     late\_mmi\_ratio & & & & 0.180$^{***}$ \\
+    & & & & (0.017) \\
+     late\_move\_ins & & & -0.000$^{***}$ & \\
+    & & & (0.000) & \\
+     msa\_avg\_value\_ratio\_2019 & & 0.806$^{***}$ & 0.801$^{***}$ & 0.777$^{***}$ \\
+    & & (0.007) & (0.007) & (0.007) \\
+>>>>>>> 072ffe1ffa774bc60a3a658f39a783ac3a1108f0
     \hline \\[-1.8ex]
      Observations & 7732 & 7732 & 7732 & 7732 \\
      $R^2$ & 0.001 & 0.664 & 0.674 & 0.678 \\
      Adjusted $R^2$ & 0.001 & 0.664 & 0.674 & 0.678 \\
      Residual Std. Error & 0.302 (df=7730) & 0.175 (df=7729) & 0.172 (df=7726) & 0.171 (df=7728) \\
+<<<<<<< HEAD
     %  F Statistic & 8.445$^{***}$ (df=1; 7730) & 7624.077$^{***}$ (df=2; 7729) & 3195.555$^{***}$ (df=5; 7726) & 5424.707$^{***}$ (df=3; 7728) \\
+=======
+     F Statistic & 8.445$^{***}$ (df=1; 7730) & 7624.077$^{***}$ (df=2; 7729) & 3195.555$^{***}$ (df=5; 7726) & 5424.707$^{***}$ (df=3; 7728) \\
+>>>>>>> 072ffe1ffa774bc60a3a658f39a783ac3a1108f0
     \hline
     \hline \\[-1.8ex]
     \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
     \end{tabular}
+<<<<<<< HEAD
 \end{table}
 \newpage
 With the following variable names:
@@ -70,3 +110,8 @@ These results suggest little correlation between a change in minority move-ins a
 
 The fact that my $R^2$ is not incredibly high indicates that it may make sense to control for more variables, such as income and neighborhood political affiliation.
 \end{document}
+=======
+    \end{table}
+\end{landscape}
+\end{document}    
+>>>>>>> 072ffe1ffa774bc60a3a658f39a783ac3a1108f0
