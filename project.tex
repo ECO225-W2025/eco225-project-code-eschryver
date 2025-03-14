@@ -960,7 +960,26 @@ Statistic \& count \& mean \& std \& min \& 25\% \& 50\% \& 75\% \& max \textbac
 \textbackslash{}end\{table\}
 
     \end{Verbatim}
-
+    \begin{table}
+        \caption{Table 2: Summary Statistics of Home Value Changes by Year}
+        \label{tab:summary_stats}
+        \begin{tabular}{lrrrrrrrr}
+        \toprule
+        Statistic & count & mean & std & min & 25% & 50% & 75% & max \\
+        \midrule
+        \textbf{Home Value Change 2011} & 11376 & 0.0016247048 & 0.0374922147 & -0.2958426044 & -0.0149016569 & 0.0037850691 & 0.0212805146 & 0.2751080621 \\
+        \textbf{Home Value Change 2012} & 11376 & 0.0017263872 & 0.0587131500 & -0.4129991416 & -0.0257580976 & 0.0037738711 & 0.0329998513 & 0.3739313507 \\
+        \textbf{Home Value Change 2013} & 11376 & -0.0004507613 & 0.0782088702 & -0.4971158210 & -0.0383841286 & 0.0004044510 & 0.0394929862 & 0.6301143492 \\
+        \textbf{Home Value Change 2014} & 11376 & -0.0004639764 & 0.0961599439 & -0.6182239429 & -0.0479633900 & -0.0024051145 & 0.0442027638 & 0.8238266667 \\
+        \textbf{Home Value Change 2015} & 11376 & -0.0000004792 & 0.1192476985 & -0.6584162317 & -0.0598912895 & -0.0052687133 & 0.0505795264 & 1.1285729465 \\
+        \textbf{Home Value Change 2016} & 11376 & -0.0011199274 & 0.1438792266 & -0.7404533667 & -0.0726374485 & -0.0091603750 & 0.0549890764 & 1.4749786318 \\
+        \textbf{Home Value Change 2017} & 11376 & -0.0009987269 & 0.1723638395 & -0.8326666156 & -0.0873361990 & -0.0124782546 & 0.0610003913 & 1.7767701095 \\
+        \textbf{Home Value Change 2018} & 11376 & -0.0005756675 & 0.2089468849 & -0.9294100050 & -0.1023257038 & -0.0174591246 & 0.0695864139 & 2.3199046610 \\
+        \textbf{Home Value Change 2019} & 11376 & 0.0004322245 & 0.2312401624 & -1.0061741397 & -0.1133050321 & -0.0198231905 & 0.0783373547 & 2.7325700728 \\
+        \bottomrule
+        \end{tabular}
+        \end{table}
+        
     It should not be surprising that the median and mean are basically zero.
 Recall that we are normalizing home-value change to the metropolitan
 area's home-value change. It should also be unsurprising that the ranges
@@ -1000,7 +1019,25 @@ will drop the zip codes without Zillow data.
     \begin{Verbatim}[commandchars=\\\{\}]
 <pandas.io.formats.style.Styler at 0x22af1b2a650>
     \end{Verbatim}
-
+    # Create summary statistics for income-related columns
+    income_summary = data_table[['med_hh_inc', 'per_cap_inc', 'gini_index']].describe()
+    
+    # Rename columns for better readability
+    income_summary.columns = ['Median Household Income', 'Per Capita Income', 'Gini Index']
+    
+    # Format numbers to be more readable
+    income_summary['Median Household Income'] = income_summary['Median Household Income'].round(2)
+    income_summary['Per Capita Income'] = income_summary['Per Capita Income'].round(2)
+    income_summary['Gini Index'] = income_summary['Gini Index'].round(4)
+    
+    # Display the table with styling
+    styled_table = income_summary.style.set_caption("Table 3: Income Statistics by Zip Code")
+    
+    # Apply table styles
+    styled_table = styled_table.set_table_attributes('style="width: 50%; margin: auto;"')
+    
+    # Display the table
+    print(styled_table.to_latex())
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{22}{\boxspacing}
@@ -1045,7 +1082,40 @@ will drop the zip codes without Zillow data.
     \begin{Verbatim}[commandchars=\\\{\}]
 <pandas.io.formats.style.Styler at 0x22b000f1f30>
     \end{Verbatim}
-
+    # Update the variable names based on your data
+    demographic_summary = data_table[['total_pop', 'white', 'pct_rep']].describe().round(2)
+    
+    # Create summary statistics for demographic-related columns
+    demographic_summary.columns = ['Total Population', 'White Population', 'Pct Republican']
+    demographic_summary.index = ['Count', 'Mean', 'Standard Deviation', 'Minimum', '25th Percentile', 'Median', '75th Percentile', 'Maximum']
+    demographic_summary.loc['Range'] = demographic_summary.loc['Maximum'] - demographic_summary.loc['Minimum']
+    demographic_summary.loc['Count'] = demographic_summary.loc['Count'].astype(int)
+    
+    # Styling
+    styled_demographics = demographic_summary.style.set_caption("Table 4: Demographic Statistics by Zip Code")
+    
+    # Apply table styles
+    styled_demographics = styled_demographics.set_table_attributes('style="width: 70%; margin: auto;"')
+    
+    # Apply formatting
+    demographic_summary['Total Population'] = demographic_summary['Total Population'].astype(int)
+    demographic_summary['White Population'] = demographic_summary['White Population'].astype(int)
+    demographic_summary['Pct Republican'] = demographic_summary['Pct Republican'].astype(int)
+    
+    # Caption formatting
+    styled_demographics = styled_demographics.set_table_styles([{
+        'selector': 'caption',
+        'props': [
+            ('caption-side', 'top'),
+            ('font-size', '20px'),
+            ('font-style', 'italic'),
+            ('text-align', 'center'),
+            ('color', '#222')
+        ]
+    }])
+    
+    print(styled_demographics.to_latex())
+    
     
     \subsection{Plots \& Figures}\label{plots-figures}
 
@@ -1629,6 +1699,38 @@ docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
 \begin{Verbatim}[commandchars=\\\{\}]
 <IPython.core.display.HTML object>
 \end{Verbatim}
+\begin{table}[!htbp] \centering
+    \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{4}{c}{\textit{Dependent variable: value_ratio_2017}} \
+    \cr \cline{2-5}
+    \\[-1.8ex] & \multicolumn{4}{c}{Change in Average Home Value (%) (2010-2017)}  \\
+    \\[-1.8ex] & (1) & (2) & (3) & (4) \\
+    \hline \\[-1.8ex]
+     early_late_ratio & 0.096$^{***}$ & 0.046$^{**}$ & 0.034$^{*}$ & 0.051$^{**}$ \\
+    & (0.035) & (0.020) & (0.019) & (0.025) \\
+     intercept & 1.336$^{***}$ & 0.133$^{***}$ & 0.170$^{***}$ & 0.133$^{***}$ \\
+    & (0.003) & (0.010) & (0.010) & (0.010) \\
+     msa_avg_value_ratio_2019 & & 0.806$^{***}$ & 0.773$^{***}$ & 0.806$^{***}$ \\
+    & & (0.007) & (0.006) & (0.007) \\
+     total_pop & & & 0.000$^{***}$ & \\
+    & & & (0.000) & \\
+     white & & & -0.000$^{***}$ & \\
+    & & & (0.000) & \\
+     white_x_early_late_ratio & & & & -0.000$^{}$ \\
+    & & & & (0.000) \\
+    \hline \\[-1.8ex]
+     Observations & 7732 & 7732 & 7732 & 7732 \\
+     $R^2$ & 0.001 & 0.664 & 0.688 & 0.664 \\
+     Adjusted $R^2$ & 0.001 & 0.664 & 0.687 & 0.664 \\
+     Residual Std. Error & 0.302 (df=7730) & 0.175 (df=7729) & 0.169 (df=7727) & 0.175 (df=7728) \\
+     F Statistic & 7.625$^{***}$ (df=1; 7730) & 7624.770$^{***}$ (df=2; 7729) & 4251.759$^{***}$ (df=4; 7727) & 5082.677$^{***}$ (df=3; 7728) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+    \end{table}    
 \end{tcolorbox}
         
     Model (0) shows a barebones regression with no controls -- it indicates
@@ -1681,6 +1783,38 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-
 docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
   reg\_data['intercept'] = 1
     \end{Verbatim}
+\begin{table}[!htbp] \centering
+\begin{tabular}{@{\extracolsep{5pt}}lccc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{3}{c}{\textit{Dependent variable: value_ratio_2017}} \
+\cr \cline{2-4}
+\\[-1.8ex] & \multicolumn{3}{c}{Home Value Change (%) (2010-2017)}  \\
+\\[-1.8ex] & (1) & (2) & (3) \\
+\hline \\[-1.8ex]
+ early_late_ratio & 0.042$^{**}$ & 0.045$^{**}$ & -0.005$^{}$ \\
+& (0.020) & (0.020) & (0.173) \\
+ gini_index & & 0.041$^{}$ & 0.039$^{}$ \\
+& & (0.038) & (0.038) \\
+ gini_x_early_late & & & 0.113$^{}$ \\
+& & & (0.384) \\
+ intercept & 0.195$^{***}$ & 0.116$^{***}$ & 0.117$^{***}$ \\
+& (0.011) & (0.018) & (0.019) \\
+ msa_avg_value_ratio_2019 & 0.815$^{***}$ & 0.806$^{***}$ & 0.806$^{***}$ \\
+& (0.006) & (0.007) & (0.007) \\
+ per_cap_inc & -0.000$^{***}$ & & \\
+& (0.000) & & \\
+\hline \\[-1.8ex]
+ Observations & 7730 & 7730 & 7730 \\
+ $R^2$ & 0.674 & 0.664 & 0.664 \\
+ Adjusted $R^2$ & 0.674 & 0.664 & 0.664 \\
+ Residual Std. Error & 0.172 (df=7726) & 0.175 (df=7726) & 0.175 (df=7725) \\
+ F Statistic & 5327.427$^{***}$ (df=3; 7726) & 5082.877$^{***}$ (df=3; 7726) & 3811.728$^{***}$ (df=4; 7725) \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\end{tabular}
+\end{table}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{38}{\boxspacing}
@@ -1698,7 +1832,39 @@ docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
 <IPython.core.display.HTML object>
 \end{Verbatim}
 \end{tcolorbox}
-        
+\begin{table}[!htbp] \centering
+    \begin{tabular}{@{\extracolsep{5pt}}lccc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{3}{c}{\textit{Dependent variable: value_ratio_2017}} \
+    \cr \cline{2-4}
+    \\[-1.8ex] & \multicolumn{3}{c}{Home Value Change (%) (2010-2017)}  \\
+    \\[-1.8ex] & (1) & (2) & (3) \\
+    \hline \\[-1.8ex]
+     early_late_ratio & 0.042$^{**}$ & 0.045$^{**}$ & -0.005$^{}$ \\
+    & (0.020) & (0.020) & (0.173) \\
+     gini_index & & 0.041$^{}$ & 0.039$^{}$ \\
+    & & (0.038) & (0.038) \\
+     gini_x_early_late & & & 0.113$^{}$ \\
+    & & & (0.384) \\
+     intercept & 0.195$^{***}$ & 0.116$^{***}$ & 0.117$^{***}$ \\
+    & (0.011) & (0.018) & (0.019) \\
+     msa_avg_value_ratio_2019 & 0.815$^{***}$ & 0.806$^{***}$ & 0.806$^{***}$ \\
+    & (0.006) & (0.007) & (0.007) \\
+     per_cap_inc & -0.000$^{***}$ & & \\
+    & (0.000) & & \\
+    \hline \\[-1.8ex]
+     Observations & 7730 & 7730 & 7730 \\
+     $R^2$ & 0.674 & 0.664 & 0.664 \\
+     Adjusted $R^2$ & 0.674 & 0.664 & 0.664 \\
+     Residual Std. Error & 0.172 (df=7726) & 0.175 (df=7726) & 0.175 (df=7725) \\
+     F Statistic & 5327.427$^{***}$ (df=3; 7726) & 5082.877$^{***}$ (df=3; 7726) & 3811.728$^{***}$ (df=4; 7725) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+    \end{table}
+      
     This shi useless fr
 
     \subsubsection{Political affiliation}\label{political-affiliation}
@@ -1753,7 +1919,37 @@ docs/stable/user\_guide/indexing.html\#returning-a-view-versus-a-copy
 <IPython.core.display.HTML object>
 \end{Verbatim}
 \end{tcolorbox}
-        
+\begin{table}[!htbp] \centering
+    \begin{tabular}{@{\extracolsep{5pt}}lcc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{2}{c}{\textit{Dependent variable: value_ratio_2017}} \
+    \cr \cline{2-3}
+    \\[-1.8ex] & \multicolumn{2}{c}{Home Value Change (%) (2010-2017)}  \\
+    \\[-1.8ex] & (1) & (2) \\
+    \hline \\[-1.8ex]
+     early_late_ratio & 0.037$^{*}$ & 0.051$^{}$ \\
+    & (0.020) & (0.054) \\
+     intercept & 0.236$^{***}$ & 0.133$^{***}$ \\
+    & (0.013) & (0.010) \\
+     msa_avg_value_ratio_2019 & 0.787$^{***}$ & 0.806$^{***}$ \\
+    & (0.007) & (0.007) \\
+     pct_rep & -0.388$^{***}$ & \\
+    & (0.030) & \\
+     rep_x_early_late & & -0.034$^{}$ \\
+    & & (0.327) \\
+    \hline \\[-1.8ex]
+     Observations & 7721 & 7721 \\
+     $R^2$ & 0.670 & 0.663 \\
+     Adjusted $R^2$ & 0.670 & 0.663 \\
+     Residual Std. Error & 0.173 (df=7717) & 0.175 (df=7717) \\
+     F Statistic & 5231.599$^{***}$ (df=3; 7717) & 5071.551$^{***}$ (df=3; 7717) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+    \end{table}
+    
     Low key rpublicans are fcking cringe
 
     \subsubsection{Preferred specification}\label{preferred-specification}
