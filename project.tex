@@ -416,7 +416,7 @@
 
     
    
-    \section{Part One}\label{part-one}
+    \section{Project 1}\label{part-one}
 
     \subsection{Introduction}\label{introduction}
 
@@ -446,7 +446,7 @@ This paper seeks to contribute literature surrounding economic effects of racism
 by analyzing the modern accuracy of the perceived link that 50's era blockbusting relied
 on -- do minority move-ins suppress home-value appreciation?
 
-There is a long theoretical literature on discrimination, intiially starting with a model for taste-based discrimination by Gary Becker in 1957. There now many other models for discrimination, including most famously Ken Arrow's 1973 'statistical discriminination', but Becker's remains the most commonly used. There are also many theoretical frameworks for home sale matching, (Badarinza, Balasubramaniam, Ramadorai, 2024), but there have been few attempts to link the two. The sole notable attempt was in (Combs, et al, 2015), which built a theoretical framework for racism in home sales and lease arrangements, and then empirically tested the lease framework. This has been extended to look at a case in Moscow, where much of the racial discirmination is overt (Avetian, 2022)
+There is a long theoretical literature on discrimination, intiially starting with a model for taste-based discrimination by Gary Becker in 1957. There now many other models for discrimination, including most famously Ken Arrow's 1973 'statistical discriminination', but Becker's remains the most commonly used. There are also many theoretical frameworks for home sale matching, (Badarinza, Balasubramaniam, Ramadorai, 2024), and discriminiation in labor market matching (Combes et al, 2016), but there have been few attempts to discrimination theory in the housing market. The sole notable attempt was in (Combs, et al, 2015), which built a theoretical framework for racism in home sales and lease arrangements, and then empirically tested the lease framework. This has been extended to look at a case in Moscow, where much of the racial discirmination is overt (Avetian, 2022)
 
 This paper contributes to this literature by applying this theoretical framework to home sales, and, in particular, analyzing the long-term effects on home values. I use loan data from Fannie Mae (FNMA) \& Freddie Mac (FHLMC) to provide data on
 neighborhood move-ins, American Community Survey data to normalize, and
@@ -734,13 +734,6 @@ an area from 2010 to 2019 (End of early move-in data until COVID)
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-<>:1: SyntaxWarning: invalid escape sequence '\textbackslash{}e'
-<>:1: SyntaxWarning: invalid escape sequence '\textbackslash{}e'
-C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}552584969.py:1: SyntaxWarning:
-invalid escape sequence '\textbackslash{}e'
-  election\_data = pd.read\_csv('data\textbackslash{}election-context-2018.csv')
-    \end{Verbatim}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{17}{\boxspacing}
@@ -860,12 +853,13 @@ property value), and our outcome variable (final property value)
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{latex\PYZus{}code}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
-\begin{table}[H]
-    \caption{Table 1: Minority Move-ins}
-    \label{tab:summary_stats}
-    \begin{tabular}{lrrrr}
+\begin{table}[!h]
+    \centering
+    \textbf{Table 1: Summary Statistics for Minority Move-ins}\\
+    \label{tab:mmi_stats}
+    \begin{tabular}{l|rrrr}
     \toprule
-     & Minority Move-Ins (Initial Period) & Minority Move-Ins (Treatment Period) & Total Move-Ins (Initial Period) & Total Move-Ins (Treatment Period) \\
+    & \textbf{MMI (I)} & \textbf{MMI (T)} & \textbf{MI (I)} & \textbf{MI (T)} \\
     \midrule
     \textbf{Count} & 33503 & 33503 & 33503 & 33503 \\
     \textbf{Mean} & 0 & 5 & 12 & 62 \\
@@ -877,7 +871,8 @@ property value), and our outcome variable (final property value)
     \textbf{Maximum} & 91 & 423 & 641 & 1961 \\
     \textbf{Range} & 91 & 423 & 641 & 1961 \\
     \bottomrule
-    \end{tabular}
+    \end{tabular}\\
+    Where MMI = Minority Move-Ins, MI = Move-Ins, (I) is the initial period, and (T) is the treatment period
     \end{table}
 
     This table shows one of the difficulties of the project, many
@@ -931,26 +926,27 @@ conclusion.
 
    
     \begin{table}[H]
-        \caption{Table 2: Summary Statistics of Home Value Changes by Year}
+        \centering
+        \textbf{Table 2: Summary Statistics of Average Home Value Change (\%) by Year}\\
         \label{tab:summary_stats}
         \begin{tabular}{lrrrrrrrr}
         \toprule
-        Statistic & count & mean & std & min & 25\% & 50\% & 75\% & max \\
+        Year & count & mean & std & min & 25\% & 50\% & 75\% & max \\
         \midrule
-        \textbf{Home Value Change 2011} & 11376 & 0.0016247048 & 0.0374922147 & -0.2958426044 & -0.0149016569 & 0.0037850691 & 0.0212805146 & 0.2751080621 \\
-        \textbf{Home Value Change 2012} & 11376 & 0.0017263872 & 0.0587131500 & -0.4129991416 & -0.0257580976 & 0.0037738711 & 0.0329998513 & 0.3739313507 \\
-        \textbf{Home Value Change 2013} & 11376 & -0.0004507613 & 0.0782088702 & -0.4971158210 & -0.0383841286 & 0.0004044510 & 0.0394929862 & 0.6301143492 \\
-        \textbf{Home Value Change 2014} & 11376 & -0.0004639764 & 0.0961599439 & -0.6182239429 & -0.0479633900 & -0.0024051145 & 0.0442027638 & 0.8238266667 \\
-        \textbf{Home Value Change 2015} & 11376 & -0.0000004792 & 0.1192476985 & -0.6584162317 & -0.0598912895 & -0.0052687133 & 0.0505795264 & 1.1285729465 \\
-        \textbf{Home Value Change 2016} & 11376 & -0.0011199274 & 0.1438792266 & -0.7404533667 & -0.0726374485 & -0.0091603750 & 0.0549890764 & 1.4749786318 \\
-        \textbf{Home Value Change 2017} & 11376 & -0.0009987269 & 0.1723638395 & -0.8326666156 & -0.0873361990 & -0.0124782546 & 0.0610003913 & 1.7767701095 \\
-        \textbf{Home Value Change 2018} & 11376 & -0.0005756675 & 0.2089468849 & -0.9294100050 & -0.1023257038 & -0.0174591246 & 0.0695864139 & 2.3199046610 \\
-        \textbf{Home Value Change 2019} & 11376 & 0.0004322245 & 0.2312401624 & -1.0061741397 & -0.1133050321 & -0.0198231905 & 0.0783373547 & 2.7325700728 \\
+        \textbf{2011} & 11376 & 0.002 & 0.037 & -0.296 & -0.015 & 0.004 & 0.021 & 0.275 \\
+        \textbf{2012} & 11376 & 0.002 & 0.059 & -0.413 & -0.026 & 0.004 & 0.033 & 0.374 \\
+        \textbf{2013} & 11376 & -0.000 & 0.078 & -0.497 & -0.038 & 0.000 & 0.039 & 0.630 \\
+        \textbf{2014} & 11376 & -0.000 & 0.096 & -0.618 & -0.048 & -0.002 & 0.044 & 0.824 \\
+        \textbf{2015} & 11376 & -0.000 & 0.119 & -0.658 & -0.060 & -0.005 & 0.051 & 1.129 \\
+        \textbf{2016} & 11376 & -0.001 & 0.144 & -0.740 & -0.073 & -0.009 & 0.055 & 1.475 \\
+        \textbf{2017} & 11376 & -0.001 & 0.172 & -0.833 & -0.087 & -0.012 & 0.061 & 1.777 \\
+        \textbf{2018} & 11376 & -0.001 & 0.209 & -0.929 & -0.102 & -0.017 & 0.070 & 2.320 \\
+        \textbf{2019} & 11376 & 0.000 & 0.231 & -1.006 & -0.113 & -0.020 & 0.078 & 2.733 \\
         \bottomrule
         \end{tabular}
         \end{table}
              
-    It should not be surprising that the median and mean are basically zero.
+    It should not be surprising that the median and mean are nearly zero for all years.
 Recall that we are normalizing home-value change to the metropolitan
 area's home-value change. It should also be unsurprising that the ranges
 increase over time. The difference between a neighborhood and metro area
@@ -986,20 +982,22 @@ will drop the zip codes without Zillow data.
 \end{tcolorbox}
 
 \begin{table}[H]
-    \caption{Table 3: Income Statistics by Zip Code}
-    \begin{tabular}{lrrr}
-     & Median Household Income & Per Capita Income & Gini Index \\
-    count & 30600.000000 & 33045.000000 & 33501.000000 \\
-    mean & 73148.450000 & -8293391.340000 & -24078882.794100 \\
-    std & 31357.090000 & 74068228.620000 & 124391551.390800 \\
-    min & 2499.000000 & -666666666.000000 & -666666666.000000 \\
-    25\% & 53481.500000 & 28256.000000 & 0.369800 \\
-    50\% & 67017.000000 & 35231.000000 & 0.415400 \\
-    75\% & 85313.000000 & 44613.000000 & 0.458300 \\
-    max & 250001.000000 & 419459.000000 & 1.000000 \\
-    \end{tabular}
+    \centering
+    \textbf{Table 3: Summary Statistics for Income}\\
+    \begin{tabular}{l|rrr}
+        \toprule
+        & Median Household Income & Per Capita Income & Gini Index \\\midrule
+       Count & 30562 & 32208 & 32208 \\
+       Mean & 73170 & 39472 & 0.414700 \\
+       Standard Deviation & 31347 & 18844 & 0.081300 \\
+       Minimum & 2499 & 421 & 0.001000 \\
+       25th Percentile & 53500 & 28762 & 0.376500 \\
+       Median & 67028 & 35573 & 0.418200 \\
+       75th Percentile & 85316 & 44910 & 0.460100 \\
+       Maximum & 250001 & 419459 & 1.000000 \\\bottomrule
+       \end{tabular}
 \end{table}
-
+Income is widely ranging, as is Gini Index. Most outliers are in small zip codes that are not relevant to our analysis. It is not surprising that the average values for median houeshold income and per capita income are slightly lower than nationwide average. Both variables are skewed heavily right, affecting the nationwide statistics.
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1045,21 +1043,22 @@ will drop the zip codes without Zillow data.
     \end{Verbatim}
 
     \begin{table}[H]
-        \caption{Table 4: Demographic Statistics by Zip Code}
-        \begin{tabular}{lrrr}
-         & Total Population & White Population & Pct Republican \\
-        Count & 33503 & 33503 & 13268 \\
-        Mean & 126305 & 69805 & 0 \\
-        Standard Deviation & 297884 & 151441 & 0 \\
-        Minimum & 1 & 1 & 0 \\
-        25th Percentile & 1149 & 919 & 0 \\
-        Median & 8688 & 6824 & 0 \\
-        75th Percentile & 95961 & 59662 & 0 \\
-        Maximum & 6094116 & 2829875 & 0 \\
-        Range & 6094115 & 2829874 & 0 \\
+        \centering
+        \textbf{Table 4: Summary Statistics for Demographics and Political affiliation}\\
+        \begin{tabular}{l|rr}\toprule
+             & \% White & \% Republican \\\midrule
+            Count & 32208 & 13016 \\
+            Mean & 0.765480 & 0.204297 \\
+            Standard Deviation & 0.226515 & 0.069101 \\
+            Minimum & 0.000762 & 0.018569 \\
+            25th Percentile & 0.669562 & 0.156796 \\
+            Median & 0.859255 & 0.206333 \\
+            75th Percentile & 0.931172 & 0.250789 \\
+            Maximum & 1.000000 & 0.423777 \\
+            Range & 0.999238 & 0.405208 \\\bottomrule
         \end{tabular}
     \end{table}
-    
+    The median zip code is quite white (this is because zip codes are distributed for geographic ease of the USPS, so there are many rural zip codes). 
     \subsection{Plots \& Figures}\label{plots-figures}
 
     \subsubsection{\texorpdfstring{Histogram of \(X\) and
@@ -1151,13 +1150,13 @@ can be explained by the distribution on the right.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-<>:8: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
-<>:8: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
-C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}1897853385.py:8:
-SyntaxWarning: invalid escape sequence '\textbackslash{}d'
-  melted\_data['year'] = melted\_data['year'].str.extract('(\textbackslash{}d+)').astype(int)
-    \end{Verbatim}
+%     \begin{Verbatim}[commandchars=\\\{\}]
+% <>:8: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
+% <>:8: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
+% C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}1897853385.py:8:
+% SyntaxWarning: invalid escape sequence '\textbackslash{}d'
+%   melted\_data['year'] = melted\_data['year'].str.extract('(\textbackslash{}d+)').astype(int)
+%     \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{project_files/project_50_1.png}
@@ -1264,13 +1263,13 @@ variation noticably increasees with time.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-<>:6: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
-<>:6: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
-C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}451903953.py:6: SyntaxWarning:
-invalid escape sequence '\textbackslash{}d'
-  melted\_data['year'] = melted\_data['year'].str.extract('(\textbackslash{}d+)').astype(int)
-    \end{Verbatim}
+%     \begin{Verbatim}[commandchars=\\\{\}]
+% <>:6: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
+% <>:6: SyntaxWarning: invalid escape sequence '\textbackslash{}d'
+% C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}451903953.py:6: SyntaxWarning:
+% invalid escape sequence '\textbackslash{}d'
+%   melted\_data['year'] = melted\_data['year'].str.extract('(\textbackslash{}d+)').astype(int)
+%     \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{project_files/project_56_1.png}
@@ -1286,7 +1285,7 @@ share. This answers my research question with ``yes, a high minority
 share does reduce the average, but the variation is high enough that we
 can't conclude anything''.
 
-    \section{Part Two}\label{part-two}
+    \section{Project 2}\label{part-two}
 
     \subsection{The Message}\label{the-message}
 
@@ -1389,12 +1388,12 @@ lack of clear relationship
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}1516833139.py:27: UserWarning:
-This figure was using a layout engine that is incompatible with subplots\_adjust
-and/or tight\_layout; not calling subplots\_adjust.
-  fig.subplots\_adjust(wspace=0.3)
-    \end{Verbatim}
+%     \begin{Verbatim}[commandchars=\\\{\}]
+% C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}1516833139.py:27: UserWarning:
+% This figure was using a layout engine that is incompatible with subplots\_adjust
+% and/or tight\_layout; not calling subplots\_adjust.
+%   fig.subplots\_adjust(wspace=0.3)
+%     \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{project_files/project_65_1.png}
@@ -1441,12 +1440,12 @@ MSA.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}1602334164.py:27: UserWarning:
-This figure was using a layout engine that is incompatible with subplots\_adjust
-and/or tight\_layout; not calling subplots\_adjust.
-  fig.subplots\_adjust(wspace=0.3)
-    \end{Verbatim}
+%     \begin{Verbatim}[commandchars=\\\{\}]
+% C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}1602334164.py:27: UserWarning:
+% This figure was using a layout engine that is incompatible with subplots\_adjust
+% and/or tight\_layout; not calling subplots\_adjust.
+%   fig.subplots\_adjust(wspace=0.3)
+%     \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{project_files/project_67_1.png}
@@ -1460,67 +1459,65 @@ homes to purchase), and the gaps in home value and minority move-in data
 throughout the rest of the sample. Overall, these maps don't support any
 conclusion, positive or negative, to my research question.
 
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{32}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} Define the common color range for both maps}
-\PY{n}{vmin} \PY{o}{=} \PY{n+nb}{min}\PY{p}{(}\PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{early\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{late\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-\PY{n}{vmax} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{early\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{late\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+% \prompt{In}{incolor}{32}{\boxspacing}
+% \begin{Verbatim}[commandchars=\\\{\}]
+% \PY{c+c1}{\PYZsh{} Define the common color range for both maps}
+% \PY{n}{vmin} \PY{o}{=} \PY{n+nb}{min}\PY{p}{(}\PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{early\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{late\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+% \PY{n}{vmax} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{early\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{zips}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{late\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{)}
 
-\PY{n}{fig}\PY{p}{,} \PY{p}{(}\PY{n}{gax1}\PY{p}{,} \PY{n}{gax2}\PY{p}{)} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{22}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{n}{constrained\PYZus{}layout}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+% \PY{n}{fig}\PY{p}{,} \PY{p}{(}\PY{n}{gax1}\PY{p}{,} \PY{n}{gax2}\PY{p}{)} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{22}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{n}{constrained\PYZus{}layout}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
 
-\PY{c+c1}{\PYZsh{} First plot}
-\PY{n}{cmap1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{magma\PYZus{}r}\PY{l+s+s2}{\PYZdq{}}
-\PY{n}{plot1} \PY{o}{=} \PY{n}{zips}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{msa\PYZus{}code == 19500.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}
-    \PY{n}{ax}\PY{o}{=}\PY{n}{gax1}\PY{p}{,} \PY{n}{edgecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap1}\PY{p}{,} 
-    \PY{n}{column}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{early\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}  \PY{c+c1}{\PYZsh{} Set legend=False here}
-    \PY{n}{vmin}\PY{o}{=}\PY{n}{vmin}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{n}{vmax}  \PY{c+c1}{\PYZsh{} Set the color scale to match the common range}
-\PY{p}{)}
-\PY{n}{gax1}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minority Move\PYZhy{}In Share (initial period)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,} \PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{pad}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
-\PY{n}{gax1}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\PY{n}{gax1}\PY{o}{.}\PY{n}{set\PYZus{}aspect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{equal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Force equal aspect ratio}
+% \PY{c+c1}{\PYZsh{} First plot}
+% \PY{n}{cmap1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{magma\PYZus{}r}\PY{l+s+s2}{\PYZdq{}}
+% \PY{n}{plot1} \PY{o}{=} \PY{n}{zips}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{msa\PYZus{}code == 19500.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}
+%     \PY{n}{ax}\PY{o}{=}\PY{n}{gax1}\PY{p}{,} \PY{n}{edgecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap1}\PY{p}{,} 
+%     \PY{n}{column}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{early\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}  \PY{c+c1}{\PYZsh{} Set legend=False here}
+%     \PY{n}{vmin}\PY{o}{=}\PY{n}{vmin}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{n}{vmax}  \PY{c+c1}{\PYZsh{} Set the color scale to match the common range}
+% \PY{p}{)}
+% \PY{n}{gax1}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minority Move\PYZhy{}In Share (initial period)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,} \PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{pad}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+% \PY{n}{gax1}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+% \PY{n}{gax1}\PY{o}{.}\PY{n}{set\PYZus{}aspect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{equal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Force equal aspect ratio}
 
-\PY{c+c1}{\PYZsh{} Second plot}
-\PY{n}{cmap2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{cividis}\PY{l+s+s2}{\PYZdq{}}
-\PY{n}{plot2} \PY{o}{=} \PY{n}{zips}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{msa\PYZus{}code == 19500.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}
-    \PY{n}{ax}\PY{o}{=}\PY{n}{gax2}\PY{p}{,} \PY{n}{edgecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap2}\PY{p}{,} 
-    \PY{n}{column}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{late\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}  \PY{c+c1}{\PYZsh{} Set legend=False here}
-    \PY{n}{vmin}\PY{o}{=}\PY{n}{vmin}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{n}{vmax}  \PY{c+c1}{\PYZsh{} Set the color scale to match the common range}
-\PY{p}{)}
-\PY{n}{gax2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minority Move\PYZhy{}In Share (treatment period)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,} \PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{pad}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
-\PY{n}{gax2}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\PY{n}{gax2}\PY{o}{.}\PY{n}{set\PYZus{}aspect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{equal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Force equal aspect ratio}
+% \PY{c+c1}{\PYZsh{} Second plot}
+% \PY{n}{cmap2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{cividis}\PY{l+s+s2}{\PYZdq{}}
+% \PY{n}{plot2} \PY{o}{=} \PY{n}{zips}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{msa\PYZus{}code == 19500.0}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}
+%     \PY{n}{ax}\PY{o}{=}\PY{n}{gax2}\PY{p}{,} \PY{n}{edgecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cmap2}\PY{p}{,} 
+%     \PY{n}{column}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{late\PYZus{}move\PYZus{}ins}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}  \PY{c+c1}{\PYZsh{} Set legend=False here}
+%     \PY{n}{vmin}\PY{o}{=}\PY{n}{vmin}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{n}{vmax}  \PY{c+c1}{\PYZsh{} Set the color scale to match the common range}
+% \PY{p}{)}
+% \PY{n}{gax2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minority Move\PYZhy{}In Share (treatment period)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,} \PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{pad}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+% \PY{n}{gax2}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+% \PY{n}{gax2}\PY{o}{.}\PY{n}{set\PYZus{}aspect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{equal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Force equal aspect ratio}
 
-\PY{c+c1}{\PYZsh{} Add a single shared colorbar}
-\PY{n}{sm} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{cm}\PY{o}{.}\PY{n}{ScalarMappable}\PY{p}{(}\PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cividis}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{norm}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{Normalize}\PY{p}{(}\PY{n}{vmin}\PY{o}{=}\PY{n}{vmin}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{n}{vmax}\PY{p}{)}\PY{p}{)}
-\PY{n}{sm}\PY{o}{.}\PY{n}{set\PYZus{}array}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Only needed for the colorbar to show properly}
-\PY{n}{cbar} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{colorbar}\PY{p}{(}\PY{n}{sm}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{p}{[}\PY{n}{gax1}\PY{p}{,} \PY{n}{gax2}\PY{p}{]}\PY{p}{,} \PY{n}{orientation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vertical}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fraction}\PY{o}{=}\PY{l+m+mf}{0.02}\PY{p}{,} \PY{n}{pad}\PY{o}{=}\PY{l+m+mf}{0.04}\PY{p}{)}
-\PY{n}{cbar}\PY{o}{.}\PY{n}{set\PYZus{}label}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minority Move\PYZhy{}In Share}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+% \PY{c+c1}{\PYZsh{} Add a single shared colorbar}
+% \PY{n}{sm} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{cm}\PY{o}{.}\PY{n}{ScalarMappable}\PY{p}{(}\PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cividis}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{norm}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{Normalize}\PY{p}{(}\PY{n}{vmin}\PY{o}{=}\PY{n}{vmin}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{n}{vmax}\PY{p}{)}\PY{p}{)}
+% \PY{n}{sm}\PY{o}{.}\PY{n}{set\PYZus{}array}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Only needed for the colorbar to show properly}
+% \PY{n}{cbar} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{colorbar}\PY{p}{(}\PY{n}{sm}\PY{p}{,} \PY{n}{ax}\PY{o}{=}\PY{p}{[}\PY{n}{gax1}\PY{p}{,} \PY{n}{gax2}\PY{p}{]}\PY{p}{,} \PY{n}{orientation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vertical}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fraction}\PY{o}{=}\PY{l+m+mf}{0.02}\PY{p}{,} \PY{n}{pad}\PY{o}{=}\PY{l+m+mf}{0.04}\PY{p}{)}
+% \PY{n}{cbar}\PY{o}{.}\PY{n}{set\PYZus{}label}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Minority Move\PYZhy{}In Share}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
 
-\PY{c+c1}{\PYZsh{} Add the overall title}
-\PY{n}{fig}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Minority Move\PYZhy{}Ins \PYZam{} Home Value Changes (Boston Metro)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+m+mf}{1.05}\PY{p}{)}
+% \PY{c+c1}{\PYZsh{} Add the overall title}
+% \PY{n}{fig}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Minority Move\PYZhy{}Ins \PYZam{} Home Value Changes (Boston Metro)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+m+mf}{1.05}\PY{p}{)}
 
-\PY{c+c1}{\PYZsh{} Adjust plot spacing}
-\PY{n}{fig}\PY{o}{.}\PY{n}{subplots\PYZus{}adjust}\PY{p}{(}\PY{n}{wspace}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{)}
+% \PY{c+c1}{\PYZsh{} Adjust plot spacing}
+% \PY{n}{fig}\PY{o}{.}\PY{n}{subplots\PYZus{}adjust}\PY{p}{(}\PY{n}{wspace}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{)}
 
-\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
+% \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+% \end{Verbatim}
+% \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}2234367526.py:39: UserWarning:
-This figure was using a layout engine that is incompatible with subplots\_adjust
-and/or tight\_layout; not calling subplots\_adjust.
-  fig.subplots\_adjust(wspace=0.3)
-    \end{Verbatim}
+%     \begin{Verbatim}[commandchars=\\\{\}]
+% C:\textbackslash{}Users\textbackslash{}emers\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_19012\textbackslash{}2234367526.py:39: UserWarning:
+% This figure was using a layout engine that is incompatible with subplots\_adjust
+% and/or tight\_layout; not calling subplots\_adjust.
+%   fig.subplots\_adjust(wspace=0.3)
+%     \end{Verbatim}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{project_files/project_69_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
+%     \begin{center}
+%     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{project_files/project_69_1.png}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     
-    huh my data is FUCKED
-
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1575,7 +1572,7 @@ colored green or dark blue, which would be consistent with a direct
 relationship.
 
     \subsection{Regressions}\label{regressions}
-
+    For Residual Std. Error and F Statistics, view Appendix B on the last page. 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{34}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1668,8 +1665,8 @@ relationship.
      Observations & 7732 & 7732 & 7732 & 7732 \\
      $R^2$ & 0.001 & 0.664 & 0.688 & 0.664 \\
      Adjusted $R^2$ & 0.001 & 0.664 & 0.687 & 0.664 \\
-     Residual Std. Error & 0.302 (df=7730) & 0.175 (df=7729) & 0.169 (df=7727) & 0.175 (df=7728) \\
-     F Statistic & 7.625$^{***}$ (df=1; 7730) & 7624.770$^{***}$ (df=2; 7729) & 4251.759$^{***}$ (df=4; 7727) & 5082.677$^{***}$ (df=3; 7728) \\
+    %  Residual Std. Error & 0.302 (df=7730) & 0.175 (df=7729) & 0.169 (df=7727) & 0.175 (df=7728) \\
+    %  F Statistic & 7.625$^{***}$ (df=1; 7730) & 7624.770$^{***}$ (df=2; 7729) & 4251.759$^{***}$ (df=4; 7727) & 5082.677$^{***}$ (df=3; 7728) \\
     \hline
     \hline \\[-1.8ex]
     \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
@@ -1754,9 +1751,9 @@ characteristics}\label{neighborhood-income-characteristics}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{38}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-<IPython.core.display.HTML object>
-\end{Verbatim}
+% \begin{Verbatim}[commandchars=\\\{\}]
+% <IPython.core.display.HTML object>
+% \end{Verbatim}
 \end{tcolorbox}
 \begin{table}[H] \centering
     \begin{tabular}{@{\extracolsep{5pt}}lccc}
@@ -1783,8 +1780,8 @@ characteristics}\label{neighborhood-income-characteristics}
      Observations & 7730 & 7730 & 7730 \\
      $R^2$ & 0.674 & 0.664 & 0.664 \\
      Adjusted $R^2$ & 0.674 & 0.664 & 0.664 \\
-     Residual Std. Error & 0.172 (df=7726) & 0.175 (df=7726) & 0.175 (df=7725) \\
-     F Statistic & 5327.427$^{***}$ (df=3; 7726) & 5082.877$^{***}$ (df=3; 7726) & 3811.728$^{***}$ (df=4; 7725) \\
+    %  Residual Std. Error & 0.172 (df=7726) & 0.175 (df=7726) & 0.175 (df=7725) \\
+    %  F Statistic & 5327.427$^{***}$ (df=3; 7726) & 5082.877$^{***}$ (df=3; 7726) & 3811.728$^{***}$ (df=4; 7725) \\
     \hline
     \hline \\[-1.8ex]
     \textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
@@ -1822,10 +1819,10 @@ characteristics}\label{neighborhood-income-characteristics}
     % \end{tabular}
     % \end{table}
       
-    This shi useless fr
+    
 
     \subsubsection{Political affiliation}\label{political-affiliation}
-
+    (4) attempts to control for income, but it does not seem that income has an economicially significant effect. (5) and (6) use the fact that those in neighborhoods with a lower gini index would likely have preferences leading to a higher tolerance of neighborhood diversity. The literature would suggest this would lead to a smaller change in home values after a change in MMI share, but the interaciton term in (6) does not reach significance. 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{39}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1872,9 +1869,9 @@ characteristics}\label{neighborhood-income-characteristics}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{40}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-<IPython.core.display.HTML object>
-\end{Verbatim}
+% \begin{Verbatim}[commandchars=\\\{\}]
+% <IPython.core.display.HTML object>
+% \end{Verbatim}
 \end{tcolorbox}
 \begin{table}[!htbp] \centering
     \begin{tabular}{@{\extracolsep{5pt}}lcc}
@@ -1885,29 +1882,29 @@ characteristics}\label{neighborhood-income-characteristics}
     \\[-1.8ex] & \multicolumn{2}{c}{Home Value Change (\%) (2010-2017)}  \\
     \\[-1.8ex] & (7) & (8) \\
     \hline \\[-1.8ex]
-    intercept & 0.236$^{***}$ & 0.133$^{***}$ \\
-    & (0.013) & (0.010) \\
-     MMI-share increase (treatment) & 0.037$^{*}$ & 0.051$^{}$ \\
-    & (0.020) & (0.054) \\
-     MSA average appreciation & 0.787$^{***}$ & 0.806$^{***}$ \\
+    MMI-share increase & 0.036$^{*}$ & -0.023$^{}$ \\
+    & (0.020) & (0.053) \\
+     intercept & 0.236$^{***}$ & 0.237$^{***}$ \\
+    & (0.013) & (0.013) \\
+     MSA average appreciation & 0.787$^{***}$ & 0.787$^{***}$ \\
     & (0.007) & (0.007) \\
-     Percent republican & -0.388$^{***}$ & \\
-    & (0.030) & \\
-     Republican$\times$Change in share & & -0.034$^{}$ \\
-    & & (0.327) \\
+     Percent republican & -0.388$^{***}$ & -0.391$^{***}$ \\
+    & (0.030) & (0.031) \\
+     Republican$\times$ Change in MMI share & & 0.389$^{}$ \\
+    & & (0.326) \\
     \hline \\[-1.8ex]
-     Observations & 7721 & 7721 \\
-     $R^2$ & 0.670 & 0.663 \\
-     Adjusted $R^2$ & 0.670 & 0.663 \\
-     Residual Std. Error & 0.173 (df=7717) & 0.175 (df=7717) \\
-     F Statistic & 5231.599$^{***}$ (df=3; 7717) & 5071.551$^{***}$ (df=3; 7717) \\
-    \hline
-    \hline \\[-1.8ex]
+     Observations & 7719 & 7719 \\
+     $R^2$ & 0.670 & 0.670 \\
+     Adjusted $R^2$ & 0.670 & 0.670 \\
+    %  Residual Std. Error & 0.173 (df=7715) & 0.173 (df=7714) \\
+    %  F Statistic & 5230.789$^{***}$ (df=3; 7715) & 3923.663$^{***}$ (df=4; 7714)
+    \\[-1.8ex]
+    \hline\hline 
     \textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
     \end{tabular}
     \end{table}
     
-    Low key rpublicans are fcking cringe
+    (7) indicates that republican geographies experienced decreased home-value appreciation over the time period, which means that controlling for republicanness is likely valuable. (8) attempts to introduce an interaction term between republicanness and change in move-ins (the economic rationale being republican geographies may have different preferences), but the term does not produce significance.
 
     \subsubsection{Preferred specification}\label{preferred-specification}
 
@@ -1918,9 +1915,13 @@ a (reasonably) high \(R^2\).
 Many regression specifications above introduce control variables that
 end up having low significance, and many (surprisingly, at times) appear
 to have no clear impact on the outcome variable. As a result, the
-regression that I find tells the best story is the baseline regression:
-\[\text{Home value appreciation}=\beta_0+\beta_1(\text{Increase in minority move-in share})+\beta_2(\text{Home value appreciation of MSA})\]
-This model indicates that there is a very small positive, significant
+regression that I find tells the best story is the baseline regression with political affiliation (7):
+\begin{align*}
+    \text{Home value appreciation}=\beta_0&+\beta_1(\text{Increase in minority move-in share})\\
+    &+\beta_2(\text{Home value appreciation of MSA})\\
+    &+\beta_3(\text{Percent republican})
+\end{align*}
+This model indicates that there is a very small positive, slightly significant
 effect from an increased minority move-in share on home-value
 appreciation. This is a surprising result, but given that it is small,
 it seems to indicate there is little-to-no effect of change in minority
@@ -1943,71 +1944,80 @@ level. Regressions indicate that there is a slight, if any, increase in
 home-values due to an increase in minority move-ins. I am unable, with
 this level of data and analysis, to conclude the extent to which an
 increase in minority move-ins can explain any future change in home
-values (while controlling for MSA). There is little-to-no increased
+values (while controlling for MSA and political affiliation). There is little-to-no increased
 clarity when controlling for regional political affiliation,
 neighborhood income, or neighborhood income inequality.
 
     \subsection{References}\label{references}
 
-    Appel, I., \& Nickerson, J. (2016). Pockets of Poverty: The Long-Term
-Effects of Redlining.
-https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=2852856
+    Appel, I., \& Nickerson, J. (2016). Pockets of Poverty: The Long-Term Effects of Redlining. https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=2852856
 
-Korver-Glenn, E. (2018). Compounding inequalities: How Racial
-Stereotypes and Discrimination Accumulate Across the Stages of Housing
-Exchange. \emph{American Sociological Review}, 83(4), 627--656.
-https://doi.org/10.1177/0003122418781774
-
-Manson, S., Schroeder, J., Van Riper, D., Knowles, K., Kugler, T.,
-Roberts, F., \& Ruggles, S. (2024). \emph{National Historical Geographic
-Information System: Version 19.0} {[}Dataset{]}. Minneapolis, MN: IPUMS.
-https://doi.org/10.18128/D050.V19.0
-
-Quillian, L., Lee, J. J., \& Honoré, B. (2020). Racial Discrimination in
-the U.S. Housing and Mortgage Lending Markets: A Quantitative Review of
-Trends, 1976--2016. \emph{Race and Social Problems}, 12(1), 13--28.
-https://doi.org/10.1007/s12552-019-09276-x
-
-Rothstein, R. (2017). \emph{The Color of Law: A Forgotten History of How
-Our Government Segregated America} (First edition). Liveright Publishing
-Corporation, a division of W. W. Norton \& Company.
-
-Sood, A., Erhman-Solberg, K. (2024). The Long Shadow of Housing
-Discrimination: Evidence from Racial Covenants.
-https://drive.google.com/file/d/1uLSaQxWiSHKMuckF2gFpATywQD2J7No5/view?usp=embed\_facebook
+    Arrow, K. (1971). \textit{The Theory of Discrimination}. \\
+    https://dataspace.princeton.edu/handle/88435/dsp014t64gn18f
+    
+    Avetian, V. (2022). Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing. https://www.tse-fr.eu/sites/default/files/TSE/documents/conf/2022/echoppe/avetian.pdf
+    
+    Badarinza, C., Balasubramaniam, V., \& Ramadorai, T. (2024). In Search of the Matching Function in the Housing Market (SSRN Scholarly Paper No. 4594519). https://doi.org/10.2139/ssrn.4594519
+    
+    Becker, G. S. (1971). The Economics of Discrimination. University of Chicago Press.
+    
+    Combes, P.-P., Decreuse, B., Laouénan, M., \& Trannoy, A. (2016). Customer Discrimination and Employment Outcomes: Theory and Evidence From the French Labor Market. \textit{Journal of Labor Economics}, 34(1), 107–160. https://doi.org/10.1086/682332
+    
+    Korver-Glenn, E. (2018). Compounding inequalities: How racial stereotypes and discrimination accumulate across the stages of housing exchange. American Sociological Review, 83(4), 627–656. https://doi.org/10.1177/0003122418781774
+    
+    Manson, S., Schroeder, J., Van Riper, D., Knowles, K., Kugler, T., Roberts, F., \& Ruggles, S. (2024). National historical geographic information system: Version 19. 0 [Dataset]. Minneapolis, MN: IPUMS. https://doi.org/10.18128/D050.V19.0
+    
+    Quillian, L., Lee, J. J., \& Honoré, B. (2020). Racial discrimination in the u. S. Housing and mortgage lending markets: A quantitative review of trends, 1976–2016. Race and Social Problems, 12(1), 13–28. https://doi.org/10.1007/s12552-019-09276-x
+    
+    Rothstein, R. (2017). \textit{The Color of law: A Forgotten History of How Our Government Segregated America} (First edition). Liveright Publishing Corporation, a division of W. W. Norton \& Company.
+    
+    Sood, A., Erhman-Solberg, K. (2024). The Long Shadow of Housing Discrimination: Evidence from Racial Covenants https://drive.google.com/file/d/1uLSaQxWiSHKMuckF2gFpATywQD2J7No5/    
+\newpage
 \appendix
+\section{Feedback Incorporation}\label{feedback-incorporation}
 
-    \section{Feedback Incorporation}\label{feedback-incorporation}
-
-    \begin{itemize}
-\tightlist
-\item
-  Improved data description in intro (no longer hyperlinked, full names
-  written)
-\item
-  Added further explanation for choices of variables
-\item
-  Removed some redundant code explanation
-\item
-  Added summary statistics for more variables
-\item
-  Cleaned \& imporved tables
-\item
-  Improved readability and labeling of all plots
-\item
-  Added more justification for graph scale
-\item
-  Improved language use throughout project
-\item
-  I didn't modify my analysis of Figure 4 because I don't think it's
-  fair to say the graph supports my hypothesis. The point of that graph
-  is to show how large the variation in home value appreciation is,
-  especially compared to the small change from minority move-ins.
-\end{itemize}
-
-
-    % Add a bibliography block to the postdoc
+\begin{itemize}
+    \tightlist
+    \item
+    Improved data description in intro (no longer hyperlinked, full names
+    written)
+    \item
+    Added further explanation for choices of variables
+    \item
+    Removed some redundant code explanation
+    \item
+    Added summary statistics for more variables
+    \item
+    Cleaned \& imporved tables
+    \item
+    Improved readability and labeling of all plots
+    \item
+    Added more justification for graph scale
+    \item
+    Improved language use throughout project
+    \item
+    I didn't modify my analysis of Figure 4 because I don't think it's
+    fair to say the graph supports my hypothesis. The point of that graph
+    is to show how large the variation in home value appreciation is,
+    especially compared to the small change from minority move-ins.
+\end{itemize}    
     
-    
-    
+\section{More regression output}
+\begin{table}[H]
+    \centering
+    \textbf{Output from regressions}\\
+    \begin{tabular}{r|cc}
+        \toprule
+        Model & Residual Std. Error & F Statistic\\\midrule
+        0&0.302 (df=7730)&7.625$^{***}$ (df=1; 7730)\\
+        1&0.175 (df=7729)&7624.770$^{***}$ (df=2; 7729)\\
+        2&0.169 (df=7727)&4251.759$^{***}$ (df=4; 7727)\\
+        3&0.175 (df=7728)&5082.677$^{***}$ (df=3; 7728)\\
+        4&0.172 (df=7726)&5327.427$^{***}$ (df=3; 7726)\\
+        5&0.175 (df=7726)&5082.877$^{***}$ (df=3; 7726)\\
+        6&0.175 (df=7725)&3811.728$^{***}$ (df=4; 7725)\\
+        7&0.173 (df=7715)&5230.789$^{***}$ (df=3; 7715)\\
+        8&0.173 (df=7714)&3923.663$^{***}$ (df=4; 7714)
+    \end{tabular}
+\end{table}
 \end{document}

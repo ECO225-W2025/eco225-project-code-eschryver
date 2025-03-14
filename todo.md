@@ -3,10 +3,10 @@
 ## Part one
 
 - [ ] Rewrite intro
-  - [ ] Large literature review -- many studies
-  - [ ] Update with new findings
+  - [x] Large literature review -- many studies
+  - [x] Update with new findings
   - [ ] Better explanation of variables
-- [ ] Improve data cleaning
+- [x] Improve data cleaning
   - [ ] less yap, prettier, less data loss
   - [x] Add repub/dem info, add income info
 - [x] Improve summary tables
