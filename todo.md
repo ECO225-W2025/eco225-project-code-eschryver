@@ -8,26 +8,21 @@
   - [ ] Better explanation of variables
 - [ ] Improve data cleaning
   - [ ] less yap, prettier, less data loss
-  - [ ] Add repub/dem info, add income info
-- [ ] Improve summary tables
+  - [x] Add repub/dem info, add income info
+- [x] Improve summary tables
   - [x] Export into LaTeX
-  - [ ] Add summary of demographic info
-  - [ ] Add summary of republican vs democratic  geos
-  - [ ] Add summary if income info
-- [ ]  Improve graphs
-  - [ ]  Histogram undogshitify
-  - [ ]  Time series more better
-  - [ ]  Explanation of log on scatterplot
-  - [ ]  Better labeling (esp last one)
-  - [ ]  Formalize analysis
-  - [ ]  Republican vs democratic graph (bar chart diff in avg by republican %?)
+  - [x] Add summary of demographic info
+  - [x] Add summary of republican vs democratic geos
+  - [x] Add summary if income info
+- [x]  Improve graphs
+  - [x]  Histogram undogshitify
+  - [x]  Time series more better
+  - [x]  Explanation of log on scatterplot
+  - [x]  Better labeling (esp last one)
+  - [x]  Formalize analysis
 
 ## Part two
 
-- [ ] Improve maps
-  - [ ]  Nationwide map
-  - [ ]  Something about republican vs democratic geogrpahies
-- [ ] Improve regessions
-  - [ ]  New interaction terms
-  - [ ]  New controls
-  - [ ]  Add yap
+- [x] Map showing early vs late mmis
+- [ ] Map commentary
+- [ ] Add yap
