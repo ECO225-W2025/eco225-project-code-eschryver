@@ -26,3 +26,10 @@
 - [x] Map showing early vs late mmis
 - [ ] Map commentary
 - [ ] Add yap
+
+
+# Khazra recs 
+
+- [ ] Impute race data
+- [ ] Add percentage of existing minorities
+- [ ] Casual inference DiD
