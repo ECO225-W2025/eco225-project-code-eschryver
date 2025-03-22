@@ -1,35 +1,29 @@
 # To-do
 
-## Part one
+# Data
+- [x] Fix loan loading
+- [ ] Fix merging onto crosswalk
+- [ ] Fix zillow data gathering
 
-- [ ] Rewrite intro
-  - [x] Large literature review -- many studies
-  - [x] Update with new findings
-  - [ ] Better explanation of variables
-- [x] Improve data cleaning
-  - [ ] less yap, prettier, less data loss
-  - [x] Add repub/dem info, add income info
-- [x] Improve summary tables
-  - [x] Export into LaTeX
-  - [x] Add summary of demographic info
-  - [x] Add summary of republican vs democratic geos
-  - [x] Add summary if income info
-- [x]  Improve graphs
-  - [x]  Histogram undogshitify
-  - [x]  Time series more better
-  - [x]  Explanation of log on scatterplot
-  - [x]  Better labeling (esp last one)
-  - [x]  Formalize analysis
+# Theory
+- [ ] More papers
+- [ ] More papers
+- [ ] Build theoretical model for home search/sale with taste based discriminatory factor
 
-## Part two
+# Viz/Tables
+- [ ] Reinterpret visualizations (predicated on new data)
+- [ ] Make the maps a lot better
 
-- [x] Map showing early vs late mmis
-- [ ] Map commentary
-- [ ] Add yap
-
+# Project / robustness
+- [ ] Change regressions to be causal
+  - [ ] Read CI ch9
+  - [ ] Make modifications to regressions (get help from Adrian)
+- [ ] Supplemental web scraping
+  - [ ] Find archive padmap site
+  - [ ] Write code + add data + run regression/make map
+- [ ] ML model but thats easy
 
 # Khazra recs 
 
-- [ ] Impute race data
-- [ ] Add percentage of existing minorities
-- [ ] Casual inference DiD
+- [ ] Impute race data (not strictly necc)
+- [ ] Casual inference DiD (above)
