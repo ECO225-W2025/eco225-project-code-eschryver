@@ -3,7 +3,7 @@
 # Data
 - [x] Fix loan loading
 - [ ] Fix merging onto crosswalk
-- [ ] Fix zillow data gathering
+- [x] Fix zillow data gathering
 
 # Theory
 - [ ] More papers
