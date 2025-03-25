@@ -18,6 +18,7 @@
 - [ ] Change regressions to be causal
   - [ ] Read CI ch9
   - [ ] Make modifications to regressions (get help from Adrian)
+  - [ ] Change in minority share as main X?
 - [ ] Supplemental web scraping
   - [ ] Find archive padmap site
   - [ ] Write code + add data + run regression/make map
