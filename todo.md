@@ -9,7 +9,7 @@
 ## Theory
 
 - [ ] More papers
-- [ ] More papers
+- [ ] More paper
 - [ ] Build theoretical model for home search/sale with taste based discriminatory factor
 
 ## Viz/Tables
@@ -30,6 +30,9 @@
 
 ## Khazra recs
 
-- [ ] Impute race data (not strictly necc)
 - [ ] Casual inference DiD (above)
 - [ ] Get rid of the first year last year, make it just one year one treatment!
+- [ ] keep y time series
+- [ ] treat x as treatment
+- [ ] event study 
+  - [ ] you can have an event study where the treatment happens at different periods with different dosages
