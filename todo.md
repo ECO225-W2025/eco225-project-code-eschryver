@@ -1,32 +1,33 @@
 # To-do
 
-## Data
+## Regressions
 
-- [x] Fix loan loading
-- [ ] Fix merging onto crosswalk
-- [x] Fix zillow data gathering
+- [ ] Redo regression specification pref
+- [ ] Reinterpret regressions
 
 ## Theory
 
 - [ ] More papers
 - [ ] More paper
 - [ ] Build theoretical model for home search/sale with taste based discriminatory factor
+- [ ] Rewrite conclusion
 
 ## Viz/Tables
 
-- [ ] Reinterpret visualizations (predicated on new data)
+- [ ] Reinterpret visualizations
 - [ ] Make the maps a lot better
 
 ## Project / robustness
 
 - [ ] Change regressions to be causal
-  - [ ] Read CI ch9
+  - [x] Read CI ch9
   - [ ] Make modifications to regressions (get help from Adrian)
   - [ ] Change in minority share as main X?
 - [ ] Supplemental web scraping
   - [ ] Find archive padmap site
   - [ ] Write code + add data + run regression/make map
-- [ ] ML model but thats easy
+- [x] ML model but thats easy
+- [ ] ML diff to regs
 
 ## Khazra recs
 
