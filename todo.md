@@ -1,10 +1,5 @@
 # To-do
 
-## Regressions
-
-- [ ] Redo regression specification pref
-- [ ] Reinterpret regressions
-
 ## Theory
 
 - [ ] More papers
@@ -12,22 +7,17 @@
 - [ ] Build theoretical model for home search/sale with taste based discriminatory factor
 - [ ] Rewrite conclusion
 
-## Viz/Tables
-
-- [ ] Reinterpret visualizations
-- [ ] Make the maps a lot better
-
 ## Project / robustness
 
-- [ ] Change regressions to be causal
+<!-- - [ ] Change regressions to be causal
   - [x] Read CI ch9
   - [ ] Make modifications to regressions (get help from Adrian)
-  - [ ] Change in minority share as main X?
+  - [ ] Change in minority share as main X? -->
 - [ ] Supplemental web scraping
   - [ ] Find archive padmap site
   - [ ] Write code + add data + run regression/make map
-- [x] ML model but thats easy
-- [ ] ML diff to regs
+- [ ] ML discussion
+- [ ] The Message
 
 ## Khazra recs
 
