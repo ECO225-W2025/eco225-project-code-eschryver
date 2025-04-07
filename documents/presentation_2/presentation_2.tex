@@ -1,0 +1,148 @@
+\documentclass[aspectratio=169]{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+\usetheme{Madrid}
+%%% Colors
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\usecolortheme[named=ForestGreen]{structure}
+
+\usepackage{amsthm}
+\title[Minority Move-Ins and Home Appreciation]{"Blockbusting" in the 21st Century?: Minority Move-ins and Neighborhood Home Value Appreciation}
+\author{Emerson Schryver\thanks{Undergraduate student, University of Toronto}}
+\begin{document}
+\begin{frame}
+    \maketitle
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Introduction}
+\begin{itemize}
+    \item Investigates whether minority move-ins suppress home-value appreciation.
+    \item Uses loan data (Fannie Mae \& Freddie Mac) for move-ins, ACS (Census) data for normalization, and zip-code level Zillow ZHVI for home prices.
+    \item Methodology:
+    \begin{itemize}
+        \item Select zip codes with minority move-ins (2009-2010).
+        \item Track change in minority move-in share (2012-2013) as treatment.
+        \item Analyze home price appreciation over following six years (until 2019).
+    \end{itemize}
+    \item Findings: There is an inverse relationship between an increase in minority move-ins and home-value appreciation.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Background}
+    Housing discrimination: long-running problem in US
+    \begin{itemize}
+        % \item Historical tactics: deed covenants, redlining, white flight, blockbusting (Rothstein, 2017).
+        \item Effects from racial discrimination persist:
+        
+        \small
+        - Deed covenants improve neighborhood quality (Sood, Ehrman-Solberg, 2024), Redlining localizes poverty (Appel, Nickerson, 2016), Majority-Black neighborhoods have lower quality of opportunity (Chetty et al., 2014)\\
+        - Lending disparities (Quillian, Lee, Honoré, 2020), Racial steering in real estate (Glenn, 2018)\\
+        \textit{\textbf{Contribution:} "blockbusting" based discrimination persits}
+            
+        \normalsize
+        \item Rational discrimination: Taste-based (Becker, 1957), statistical discrimination (Arrow, 1973)
+        \item Rational discrimination in housing market: (Combes, et al, 2018, Avetian, 2022)\\
+        \small\textit{\textbf{Contribution:} Effect on American home prices of minority move-ins}
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \framedgraphic{Data}{project_files/project_40_0.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}
+%     \frametitle{Data: Home Value Appreciation (\%) (difference to MSA average) (by year)}
+%         \centering
+%         \begin{tabular}{lrrrrrrrr}
+%             \toprule
+%             Year & count & mean & std & min & 25\% & 50\% & 75\% & max \\
+%             \midrule
+%             \textbf{2011} & 11376 & 0.0016 & 0.0375 & -0.2958 & -0.0149 & 0.0038 & 0.0213 & 0.2751 \\
+%             \textbf{2012} & 11376 & 0.0017 & 0.0587 & -0.4130 & -0.0258 & 0.0038 & 0.0330 & 0.3739 \\
+%             \textbf{2013} & 11376 & -0.0005 & 0.0782 & -0.4971 & -0.0384 & 0.0004 & 0.0395 & 0.6301 \\
+%             \textbf{2014} & 11376 & -0.0005 & 0.0962 & -0.6182 & -0.0480 & -0.0024 & 0.0442 & 0.8238 \\
+%             \textbf{2015} & 11376 & 0.0000 & 0.1192 & -0.6584 & -0.0599 & -0.0053 & 0.0506 & 1.1286 \\
+%             \textbf{2016} & 11376 & -0.0011 & 0.1439 & -0.7405 & -0.0726 & -0.0092 & 0.0550 & 1.4750 \\
+%             \textbf{2017} & 11376 & -0.0010 & 0.1724 & -0.8327 & -0.0873 & -0.0125 & 0.0610 & 1.7768 \\
+%             \textbf{2018} & 11376 & -0.0006 & 0.2089 & -0.9294 & -0.1023 & -0.0175 & 0.0696 & 2.3199 \\
+%             \textbf{2019} & 11376 & 0.0004 & 0.2312 & -1.0062 & -0.1133 & -0.0198 & 0.0783 & 2.7326 \\
+%             \bottomrule
+%         \end{tabular}
+% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Data: Home Value Changes by Year (only in-MSA ZIPs)}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|rrrr}
+    \toprule
+    & \textbf{MMI (I)} & \textbf{MMI (T)} & \textbf{MI (I)} & \textbf{MI (T)} \\
+    \midrule
+    \textbf{Count} & 19847 & 19847 & 19847 & 19847 \\
+    \textbf{Mean} & 8 & 12 & 100 & 167 \\
+    \textbf{Standard Deviation} & 20 & 25 & 142 & 227 \\
+    \textbf{Minimum} & 0 & 0 & 0 & 0 \\
+    \textbf{25th Percentile} & 0 & 0 & 6 & 19 \\
+    \textbf{Median} & 1 & 3 & 44 & 76 \\
+    \textbf{75th Percentile} & 8 & 14 & 137 & 230 \\
+    \textbf{Maximum} & 403 & 615 & 1460 & 2338 \\
+    \textbf{Range} & 403 & 615 & 1460 & 2338 \\
+    \bottomrule
+    \end{tabular}\\
+    Where MMI = Minority Move-Ins, MI = Move-Ins, (I) is the initial period, and (T) is the treatment period
+\end{table}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\framedgraphic{Results}{../../project_files/project_54_1.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\framedgraphic{Results}{../../project_files/project_61_1.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\framedgraphic{Results}{../../project_files/project_76_0.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Regression: Political Affiliation} 
+    \begin{table}[H] \centering
+        \begin{tabular}{@{\extracolsep{5pt}}lcc}
+        Highly Republican $\times$ Treatment Size & & 0.227$^{***}$ \\
+       & & (0.025) \\
+        Highly Republican & & 0.009$^{**}$ \\
+       & & (0.004) \\
+        intercept & 0.048$^{***}$ & 0.047$^{***}$ \\
+       & (0.013) & (0.011) \\
+       MSA avg. appreciation & 0.962$^{***}$ & 0.957$^{***}$ \\
+       & (0.007) & (0.007) \\
+        Percent Republican & -0.013$^{}$ & \\
+       & (0.012) & \\
+        Treatment Size & -0.262$^{***}$ & -0.304$^{***}$ \\
+       & (0.023) & (0.023) \\
+       \hline \\[-1.8ex]
+        Observations & 15889 & 15889 \\
+        $R^2$ & 0.549 & 0.552 \\
+        %  Residual Std. Error & 0.173 (df=7715) & 0.173 (df=7714) \\
+        %  F Statistic & 5230.789$^{***}$ (df=3; 7715) & 3923.663$^{***}$ (df=4; 7714)
+        \end{tabular}
+    \end{table}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\framedgraphic{Results}{../../project_files/project_131_0.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Conclusion}
+\begin{itemize}
+    \item There is a negative relationship between increased minority move-ins and home value appreciation
+    \item This effect is smaller in more republican geographies
+    \item Future work: Model \& estimation, 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

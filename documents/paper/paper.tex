@@ -1,57 +1,408 @@
 \documentclass{article}
 \usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{cleveref}
+\usepackage{indentfirst}
 \usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+\crefname{table}{Table}{Tables} 
+\Crefname{table}{Table}{Tables}
 
 \title{"Blockbusting" in the 21st Century?: Minority Move-ins and Neighborhood Home Value Appreciation}
 \author{Emerson Schryver\thanks{Undergraduate Student, University of Toronto, \href{mailto:emerson.schryver@mail.utoronto.ca}{emerson.schryver@mail.utoronto.ca}}}
 \begin{document}
 \maketitle
 \begin{abstract}
-    This paper investigates the link between minority move-ins and neighborhood home value appreciation. It analyzes
+    This paper investigates the link between minority move-ins and neighborhood home value appreciation. It analyzes loan-level home purchase data to construct a dataset of move-in demographics and we find a statistically significant relationship between an increase in the share of move-ins from minorities and a supression of home-value appreciation over the next six years. This relationship is particularly prevalent in non-republican geographies.
+    \\
 
-    % \textbf{JEL Codes:} J15, R23, R33
+    \textbf{JEL Codes:} J15, R23, R33
 \end{abstract}
 \newpage
 \section{Introduction}
-\indent Housing discrimination has, in one way or another, existed in the United States since independence. After reconstruction, several tactics became commonplace, including racial deed covenants, and redlining. Across the nation, there was evidence of ``white flight'', or the movement of whites out of neighborhoods with minorities due to fears over home value depreciation or other factors. Real-estate agents commonly attempted to abuse these fears with a tactic known as "blockbusting" in which they would spread fear over minority-move-ins leading to a fire sale of homes in a neighborhood (Rothstein, 2017).
+Housing discrimination has, in one way or another, existed in the United States since independence. After reconstruction, several tactics became commonplace, including racial deed covenants, and redlining. Across the nation, there was evidence of ``white flight'', or the movement of whites out of neighborhoods with minorities due to fears over home value depreciation or other factors. Real-estate agents commonly attempted to abuse these fears with a tactic known as "blockbusting" in which they would spread fear over minority-move-ins leading to a fire sale of homes in a neighborhood (Rothstein, 2017).
 
 Much has been researched about the modern-day effects of these past tactics, whether in deed covenants leading to improved relative neighborhood quality (Sood, Ehrman-Solberg, 2024), or redlining leading to localized areas of higher poverty (Appel, Nickerson, 2016), or simply lower quality of opportunity in majority-black neighborhoods (Chetty, et al, 2014). There is also evidence of modern-day tactics still occurring in the housing market, whether in lending markets (Quillian, Lee, Honoré, 2020), or in real estates continuing to practice "racial steering", the process of, whether knowing it or not, primarily showing people of minority groups neighborhoods that are also primarily of that minority group (Glenn, 2018). 
 
 This paper seeks to contribute literature surrounding economic effects of racism  by analyzing the modern accuracy of the perceived link that 50's era blockbusting relied on -- do minority move-ins suppress home-value appreciation?
 
-There is a long theoretical literature on discrimination, intiially starting with a model for taste-based discrimination by Gary Becker in 1957. There now many other models for discrimination, including most famously Ken Arrow's 1973 'statistical discriminination', but Becker's remains the most commonly used. There are also many theoretical frameworks for home sale matching, (Badarinza, Balasubramaniam, Ramadorai, 2024), and discriminiation in labor market matching (Combes et al, 2016), but there have been few attempts to discrimination theory in the housing market. The sole notable attempt was in (Combs, et al, 2015), which built a theoretical framework for racism in home sales and lease arrangements, and then empirically tested the lease framework. This has been extended to look at a case in Moscow, where much of the racial discirmination is overt (Avetian, 2022)
+There is a long theoretical literature on discrimination, starting with a model for taste-based discrimination by Gary Becker in 1957. There now exist many other models for discrimination, most famously Ken Arrow's 1973 'statistical discriminination', but Becker's remains the most commonly used. There are also many theoretical frameworks for home sale matching, (Badarinza, Balasubramaniam, Ramadorai, 2024), and discriminiation in labor market matching (Combes et al, 2016), but there have been few models for discrimination in the housing market. The sole notable attempt was in (Combes, et al, 2018), which built a theoretical framework for racism in home sales and lease arrangements, and then empirically tested the lease framework. This paper relied on "neighbor" discriminiation, which is based on perceptions of others having discriminatory tastes and their potential to decrease the value of your asset (home). This has been extended to look at a case in Moscow, where much of the racial discirmination is more overt (Avetian, 2022)
 
-This paper contributes to this literature by applying this theoretical framework to home sales, and, in particular, analyzing the long-term effects on home values. I use loan data from Fannie Mae (FNMA) \& Freddie Mac (FHLMC) to provide data on
-neighborhood move-ins, American Community Survey data to normalize, and
-Zillow ZHVI data to show the change in home prices. My study has the
-following methodology:
+This paper contributes to this literature by applying this theoretical framework to home sales, and, in particular, analyzing the long-term effects on home values. I use loan data from Fannie Mae (FNMA) \& Freddie Mac (FHLMC) to provide data on neighborhood move-ins, American Community Survey data to normalize, and Zillow ZHVI data to show the change in home prices. My study has the following methodology:
 
-First, I select zip codes with move-ins during the 2009-2010 period
-(Initial Period) that are majority white (we are uninterested in the
-effect on majority-minority neighborhoods), and in metropolitan
-statistical areas (necessary for appreciation normalization). I take the
-``minority move-in share'', or the ratio of loans for new purchases made
-in that zip code to minorities, and then look at those same zip codes
-over the 2012-2013 period (Treatment Period) and analyze what
-``treatment'' was applied (the difference in minority move-in share from
-the previous period), which is our main explanatory variable. Next, we
-analyze the association between the change in minority move-in-share and
-the future appreciation in home prices, relative to their MSA average,
-for the next 6 years (ending in 2019). This should inform us what the
-effect of a sudden increase in minority move-ins is on home value
-appreciation.
+First, I select zip codes with move-ins during the 2009-2010 period  (Initial Period) in metropolitan statistical areas (necessary for appreciation normalization). I take the ``minority move-in share'', or the ratio of loans for new purchases made in that zip code to minorities, and then look at those same zip codes over the 2012-2013 period (Treatment Period) and analyze what ``treatment'' was applied (the difference in minority move-in share from the previous period), which is our main explanatory variable. Next, we analyze the association between the change in minority move-in-share and the future appreciation in home prices, relative to their MSA average, for the next 6 years (ending in 2019). This should inform us what the effect of a sudden increase in minority move-ins is on home value appreciation.
 
-I find that the effect of an increase in minority move-in share on
-home-value appreciation is unclear, relative to the metropolitan
-statistical area. While the mean home value appreciation does decrease
-in the treatment group relative to the control, there is an incredibly
-high degree of variation in the data.
-\section{Model}
-\section{Method}
+I find that an increase in the share of move-ins that are from minorities is associated with a statistically significant (though relatively minor) supression in home value appreciation relative to the metropolitan statistical area. This effect is less present in more republican geographies, suggesting some degree of heterogeneous preferences between partisan affiliations.
+\newpage
+\section{Data}
+This project has loan-level data from two the main loan packagers in the United States, the Federal National Mortgage Association (Fannie Mae), and the Federal Home Loan Mortgage Corporation (Freddie Mac). This data spans from 2009 to 2023, but the analysis for this paper uses the subset from 2010-2011 and 2012-2013. This subset has over 3.5 million loans, and includes information on borrower and coborrower characteristics, home location (census tract), and loan purpose. This data is then aggregated by location (and filtered to solely 'new purchase' loans) to act as a proxy for move-ins, with the racial composition of move-ins, in a given geography.
+
+I use data from Zillow's Zillow Home Value Index (ZHVI) to analyze the change in home values over time. This data is at the zip-code level, and is available monthly for all the years of analysis. I use quarter four averages of the ZHVI to remove some data loss (certain locations have missing values in certain months), and anaylyze the percent change from 2010 in each zip-code.
+
+For normalization, and to analyze potential interactions, I use county-level election results from the 2012 presidential election from the MIT Election Data Science Lab. Many zip-codes are contained within a single county. For zip-codes that aren't, we pick the county with the lower FIPS code. Additionally, we use ZCTA (zip-code tabulation area -- largely synonymous with zip-codes)-level income and demographic data (IPUMS, 2025). This provides data on the Gini index (inequality level), the per-capita income, as well as the zip-code population size, and proportion of residents who are of minority backgrounds or white backgrounds.
+\section{Summary Statistics}
+\begin{table}[H]
+    \centering
+    \caption{Summary Statistics of Home Value Changes by Year (only in-MSA ZIPs)}\label{move-in-table}
+    \begin{tabular}{l|rrrr}
+    \toprule
+    & \textbf{MMI (I)} & \textbf{MMI (T)} & \textbf{MI (I)} & \textbf{MI (T)} \\
+    \midrule
+    \textbf{Count} & 19847 & 19847 & 19847 & 19847 \\
+    \textbf{Mean} & 8 & 12 & 100 & 167 \\
+    \textbf{Standard Deviation} & 20 & 25 & 142 & 227 \\
+    \textbf{Minimum} & 0 & 0 & 0 & 0 \\
+    \textbf{25th Percentile} & 0 & 0 & 6 & 19 \\
+    \textbf{Median} & 1 & 3 & 44 & 76 \\
+    \textbf{75th Percentile} & 8 & 14 & 137 & 230 \\
+    \textbf{Maximum} & 403 & 615 & 1460 & 2338 \\
+    \textbf{Range} & 403 & 615 & 1460 & 2338 \\
+    \bottomrule
+    \end{tabular}\\
+    Where MMI = Minority Move-Ins, MI = Move-Ins, (I) is the initial period, and (T) is the treatment period
+\end{table}
+\cref{move-in-table} shows details on move-ins particularly for zip-codes in metropolitan statistical areas (MSAs). This subsetting is critical for robust analysis of home-value appreciation. Over a quarter of all zip-codes experienced no minority move-ins during one of the periods, meaning that the treatment is relatively concentrated.
+\begin{table}[H]
+    \centering
+    \caption{Table 2: Summary Statistics of Average Home Value Change (\% point difference from MSA average) by Year}
+    \label{home_val_table}
+\begin{tabular}{l|rrrrrrrr}
+\toprule
+Statistic & count & mean & std & min & 25\% & 50\% & 75\% & max \\
+\midrule
+\textbf{2011} & 18246 & 0.003 & 0.039 & -0.392 & -0.015 & 0.005 & 0.023 & 0.362 \\
+\textbf{2012} & 18248 & 0.003 & 0.062 & -0.503 & -0.028 & 0.004 & 0.037 & 0.489 \\
+\textbf{2013} & 18248 & 0.001 & 0.083 & -0.712 & -0.042 & 0.000 & 0.045 & 0.885 \\
+\textbf{2014} & 18248 & -0.000 & 0.101 & -0.801 & -0.054 & -0.002 & 0.049 & 0.973 \\
+\textbf{2015} & 18248 & -0.002 & 0.125 & -0.907 & -0.067 & -0.006 & 0.055 & 1.117 \\
+\textbf{2016} & 18248 & -0.005 & 0.148 & -1.054 & -0.083 & -0.012 & 0.060 & 1.669 \\
+\textbf{2017} & 18248 & -0.007 & 0.175 & -1.147 & -0.102 & -0.017 & 0.066 & 1.968 \\
+\textbf{2018} & 18248 & -0.011 & 0.210 & -1.240 & -0.121 & -0.024 & 0.072 & 2.496 \\
+\textbf{2019} & 18248 & -0.012 & 0.234 & -1.251 & -0.137 & -0.029 & 0.081 & 3.036 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\cref{home_val_table} shows average home-value appreciation relative to the average for the MSA the zip-code is in. The variation is high and increases with time, which is useful for analysis.
+\begin{table}[H]
+    \centering
+    \caption{Summary Statistics for Income}
+    \label{income-table}
+    \begin{tabular}{l|rrr}
+    \toprule
+     & Median Household Income & Per Capita Income & Gini Index \\\midrule
+    Count & 30562 & 32208 & 32208 \\
+    Mean & 73170 & 39472 & 0.414700 \\
+    Standard Deviation & 31347 & 18844 & 0.081300 \\
+    Minimum & 2499 & 421 & 0.001000 \\
+    25th Percentile & 53500 & 28762 & 0.376500 \\
+    Median & 67028 & 35573 & 0.418200 \\
+    75th Percentile & 85316 & 44910 & 0.460100 \\
+    Maximum & 250001 & 419459 & 1.000000 \\\bottomrule
+    \end{tabular}
+\end{table}
+\begin{table}[H]
+    \centering
+    \caption{Summary Statistics for Demographics and Political Affiliation}
+    \label{demo-table}
+    \begin{tabular}{l|rr}\toprule
+     & \% White & \% Republican \\\midrule
+    Count & 32208 & 29540 \\
+    Mean & 0.765480 & 0.539260 \\
+    Standard Deviation & 0.226515 & 0.152746 \\
+    Minimum & 0.000762 & 0.071934 \\
+    25th Percentile & 0.669562 & 0.432962 \\
+    Median & 0.859255 & 0.544754 \\
+    75th Percentile & 0.931172 & 0.650237 \\
+    Maximum & 1.000000 & 0.932903 \\
+    Range & 0.999238 & 0.860969 \\\bottomrule
+    \end{tabular}
+\end{table}
+\cref{income-table} and \cref{demo-table} provide information on control and interaction terms (income, demographics, and political affiliation).
+\setcounter{figure}{-1}
+\begin{figure}[H]
+    \caption{Racial breakdown of move-ins}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{../../project_files/project_48_0.png}
+\end{figure} 
+This chart shows the change in primary borrower primary racial demographics from the initial period to the treatment period over the whole sample of loans. You can see that only a slim proportion are classified as Black or African American, with the vast majority being White or Asian. This is consistent with national homeownership demographics. For the purposes of this analysis, a move in is classified as ``minority'' if either the borrower or coborrower are either partially African American or are hispanic.
+\begin{center}
+    \adjustimage{max size={0.75\linewidth}{0.9\paperheight}}{../../project_files/project_51_0.png}
+    \end{center}    
+    As shown in the summary tables above, the data has an incredibly large range. This plot shows how incredibly wide the range is in home value appreciation and minority move-in share (and how incredibly concentrated the difference in minority move-in share is around zero). This figure shows how large the distribution is. In the next few plots we will attempt to answer my research question and see to what extent the distribution on the left can be explained by the distribution on the right.
 \section{Results}
+\subsection{Visualizations}
+\begin{center}
+    \adjustimage{max size={0.75\linewidth}{0.9\paperheight}}{../../project_files/project_54_1.png}
+\end{center}
+This figure shows the difference in outcome between the treatment group (higher minority move-in share) and control group (lower / same minority move-in share). It seems to indicate that the treatment experienced some home-value appreciation relative to their MSA prior to the treatment period. During the treatment period, the treatment group begins to experience a decrase in home values, which continues until the end of the graph. In contrast, the control group has every slightly increasing values for roughly the entire period. This seems to indicate that neighborhoods with a higher minority move-in share have depressed home value appreciation relative to groups without.
+\begin{center}
+    \adjustimage{max size={0.75\linewidth}{0.9\paperheight}}{../../project_files/project_58_0.png}
+\end{center}
+This figure shows something very important not shown in Figure 2, which
+is how wide the variation is. I chose a log scale to show more detail
+(as you can see, there are a few far outliers, with most of the data
+clustered near zero). From these scatterplots, it is clear there is a high degree of variance, but it appears that areas with high treatment are less likely to recieve a large increase in home-value appreciation relative to their MSA than areas with lower treatment. This is more noticable with time.
+\begin{center}
+    \adjustimage{max size={0.75\linewidth}{0.9\paperheight}}{../../project_files/project_61_1.png}
+\end{center}    
+This figure shows the extent of the increase in variation across the
+time period, and that there is a decrease in the median for the
+higher minority move-in share group. There remains a high
+degree of variation in home values relative to the metropolitan area,
+which cannot be explained by the change in minority move-in share, but it does appear that the areas with an increased minority move-in share generally experienced decreased home-value appreciation. 
+\begin{center}
+    \adjustimage{max size={0.7\linewidth}{0.6\paperheight}}{../../project_files/project_76_0.png}
+\end{center}
+This bivariate chloropleth reinforces the fact that there seems to be a relationship between the change in minority move-in share and home-value appreciation in the Boston MSA. The magenta represents areas with high minority move-ins and low home value appreciation. The teal represents areas with low minority move ins and high home value appreciation. The grey-blue represents moderate values on both. Most areas in the suburbs are either magenta, light pink, or teal, suggesting an inverse relation between change in minority move-ins and home value appreciation.
+\subsection{Regressions}
+The maps and plots suggest that there is a negative relationship between the treatment (more minority move-ins) and home-value appreciation. However, this relationship cannot be made robust without regressions. My analysis involved several regression models, controlling first for neighborhood demographics, then income, and finally political affiliation.
+
+\begin{table}[H] \centering
+    \caption{Regression Specifications with Demographics}
+    \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{4}{c}{\textit{Dependent variable: value ratio 2019}} \\
+    \cr \cline{2-5}
+    \\[-1.8ex] & \multicolumn{4}{c}{Change in Average Home Value (\%) (2010-2019)}  \\
+    \\[-1.8ex] & (0) & (1) & (2) & (3) \\
+    \hline \\[-1.8ex]
+    intercept & 1.450$^{***}$ & 0.040$^{***}$ & 0.108$^{***}$ & 0.043$^{***}$ \\
+   & (0.003) & (0.010) & (0.010) & (0.010) \\
+   MSA avg appreciation & & 0.963$^{***}$ & 0.924$^{***}$ & 0.961$^{***}$ \\
+   & & (0.007) & (0.007) & (0.007) \\
+   total pop & & & 0.000$^{***}$ & \\
+   & & & (0.000) & \\
+    treatment size & -0.324$^{***}$ & -0.263$^{***}$ & -0.155$^{***}$ & -0.158$^{***}$ \\
+   & (0.034) & (0.023) & (0.022) & (0.031) \\
+    white & & & -0.000$^{***}$ & \\
+   & & & (0.000) & \\
+   white$\times$treatment size & & & & -0.000$^{***}$ \\
+   & & & & (0.000) \\
+   \hline \\[-1.8ex]
+    Observations & 15919 & 15919 & 15919 & 15919 \\
+    $R^2$ & 0.006 & 0.550 & 0.579 & 0.550 \\
+    Adjusted $R^2$ & 0.006 & 0.550 & 0.579 & 0.550 \\   
+    %  Residual Std. Error & 0.302 (df=7730) & 0.175 (df=7729) & 0.169 (df=7727) & 0.175 (df=7728) \\
+    %  F Statistic & 7.625$^{***}$ (df=1; 7730) & 7624.770$^{***}$ (df=2; 7729) & 4251.759$^{***}$ (df=4; 7727) & 5082.677$^{***}$ (df=3; 7728) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+\end{table}
+        
+    Model (0) shows a barebones regression with no controls -- it indicates
+that there is a significant negative relationship between an increase in
+the share of minority move-ins and home value appreciation, but it's
+practically useless as it has very low explanatory power. Model (1)
+shows a baseline model controlling only for average MSA appreciation --
+it indicates there is still a negative relationship between minority
+move-ins and home value appreication, though it is smaller, and the
+model has much higher explanatory power. Model (2) indicates a similarly
+low positive relationship, and shows that there is little-to-no
+confounding occuring due to population size or whiteness of the area.
+Model (3) analyzes the interaction between zip-code whiteness and the
+change from the increase in minority move-in share and finds that there
+is no indication that whiteness affects the treatment effect.
+\begin{table}[H] \centering
+    \caption{Regression Specifications with Income and Inequality}
+    \begin{tabular}{@{\extracolsep{5pt}}lccc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{3}{c}{\textit{Dependent variable: value ratio 2019}} \
+    \cr \cline{2-4}
+    \\[-1.8ex] & \multicolumn{3}{c}{Home Value Change (\%) (2010-2019)}  \\
+    \\[-1.8ex] & (4) & (5) & (6) \\
+    \hline \\[-1.8ex]
+    Gini index & & -0.013$^{}$ & -0.015$^{}$ \\
+   & & (0.032) & (0.032) \\
+   High Gini$\times$MMI-share change & & & -0.045$^{}$ \\
+   & & & (0.047) \\
+    intercept & 0.126$^{***}$ & 0.045$^{***}$ & 0.046$^{***}$ \\
+   & (0.010) & (0.017) & (0.017) \\
+   MSA avg appreciation & 1.006$^{***}$ & 0.964$^{***}$ & 0.964$^{***}$ \\
+   & (0.007) & (0.007) & (0.007) \\
+    Income (per capita) & -0.000$^{***}$ & & \\
+   & (0.000) & & \\
+    treatment size & -0.153$^{***}$ & -0.263$^{***}$ & -0.235$^{***}$ \\
+   & (0.022) & (0.023) & (0.037) \\
+   \hline \\[-1.8ex]
+    Observations & 15919 & 15919 & 15919 \\
+    $R^2$ & 0.583 & 0.550 & 0.550 \\
+    Adjusted $R^2$ & 0.583 & 0.550 & 0.550 \\
+    %  Residual Std. Error & 0.172 (df=7726) & 0.175 (df=7726) & 0.175 (df=7725) \\
+    %  F Statistic & 5327.427$^{***}$ (df=3; 7726) & 5082.877$^{***}$ (df=3; 7726) & 3811.728$^{***}$ (df=4; 7725) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+\end{table}
+        
+  Model (4) controls for income, but it does not seem that income has an
+  economicially significant effect. It decreases the coefficient on
+  treatment size (a 1\% increase in the minority move-in proportion is
+  associated with a 0.153\% decrease in home-value appreciation),
+  similarly to controlling for whiteness (this make sense, as due to
+  socioeconomic factors, income and whitness are linked). (5) and (6)
+  analyze how the effect varies over different levels of inequality in
+  neighborhoods. The literature would suggest that those in
+  neighborhoods with a lower Gini index would likely have preferences
+  leading to a higher tolerance of neighborhood diversity, which would
+  lead to a smaller change in home values after a change in MMI share,
+  but the interaciton term in (6) does not reach significance, and
+  neither does the control term in (5).
+
+The regression with the highest "explanatory power" involved the interaction between partisan affiliation and treatment. It has the following formula:
+\begin{align*}
+    \text{Home value appreciation}=\beta_0&+\beta_1(\text{Increase in minority move-in share})\\
+    &+\beta_2(\text{Home value appreciation of MSA})\\
+    &+\beta_3(\text{Highly Republican})\\
+    &+\beta_4(\text{Highly Republican} \times \text{Increase in minority move-in share})+\varepsilon
+\end{align*}
+\begin{table}[H] \centering
+    \caption{Regression Specifications with Political Affiliation}
+    \begin{tabular}{@{\extracolsep{5pt}}lcc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{2}{c}{\textit{Dependent variable: value ratio 2019}} \
+    \cr \cline{2-3}
+    \\[-1.8ex] & \multicolumn{2}{c}{Home Value Change (\%) (2010-2019)}  \\
+    \\[-1.8ex] & (7) & (8) \\
+    \hline \\[-1.8ex]
+    Highly Republican $\times$ Treatment Size & & 0.227$^{***}$ \\
+   & & (0.025) \\
+    Highly Republican & & 0.009$^{**}$ \\
+   & & (0.004) \\
+    intercept & 0.048$^{***}$ & 0.047$^{***}$ \\
+   & (0.013) & (0.011) \\
+   MSA avg. appreciation & 0.962$^{***}$ & 0.957$^{***}$ \\
+   & (0.007) & (0.007) \\
+    Percent Republican & -0.013$^{}$ & \\
+   & (0.012) & \\
+    Treatment Size & -0.262$^{***}$ & -0.304$^{***}$ \\
+   & (0.023) & (0.023) \\
+   \hline \\[-1.8ex]
+    Observations & 15889 & 15889 \\
+    $R^2$ & 0.549 & 0.552 \\
+    Adjusted $R^2$ & 0.549 & 0.552 \\
+    %  Residual Std. Error & 0.173 (df=7715) & 0.173 (df=7714) \\
+    %  F Statistic & 5230.789$^{***}$ (df=3; 7715) & 3923.663$^{***}$ (df=4; 7714)
+    \\[-1.8ex]
+    \hline\hline 
+    \textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+\end{table}
+
+When evaluating regressions, I looked for significant terms. An ideal regression has clear conclusions with significant terms and a high \(R^2\).
+My preferreed specification is regression (8), which estimates $\beta_1=-0.304$ with high significance. It also estimates $\beta_4=0.227$ with high significance. This regression suggests that a $1\%$ increase in treatment size is correlated with a $0.304\%$ decrease in home-value appreciation in general. However, in particularly republican geographies, it is associated with a $0.227\%$ increase in home-value appreciation. This regression has relatively high "explanatory power", with a $R^2$ of 0.552.
+\subsection{Machine Learning}
+I ran two main types of machine learning algorithms on my data: a "regression tree" and a "random forest." The regression tree is based on choosing quantities for categorical splits to minimize the mean-squared error (MSE). It has the following objective:
+$$\min_{\text{splits}}\sum_{m=1}^M\sum_{i\in R_m}(y_i-\hat y_{R_m})^2$$
+Where $y_i$ is the actual outcome for observation $i$ in $R_m$, and $\hat y_{R_m}$ is the predicted outcome in the region $R_m$. The algorithm chooses "splits" or different ways of dividing the region of possible inputs into regions.
+\setcounter{figure}{4}
+\begin{figure}[htbp]
+    \centering
+    \caption{Regression Tree with All Inputs}
+    \label{tree-all}
+    \adjustimage{max size={0.75\linewidth}{0.9\paperheight}}{../../project_files/project_128_0.png}
+\end{figure}
+    
+    Figure \ref{tree-all} displays a regression tree with all of my \(X\) variables indicates that the income
+level, income inequality, and political activity are the largest
+predictors of home value appreciation relative to metropolitan area.
+Having a higher per capita income level suggests lower home value
+appreciation, as does being more highly republican. Higher political
+activity is associated with higher home value appreciation in
+higher-income areas, but lower home value appreciation in lower-income
+areas. All terms have a high level of error.
+\begin{figure}[htbp]
+    \centering
+    \caption{Regression Tree with Selected Inputs}
+    \label{tree-some}
+    \adjustimage{max size={0.75\linewidth}{0.9\paperheight}}{../../project_files/project_131_0.png}
+\end{figure}    
+
+    Figure \ref{tree-some} displays a regression tree containing my main \(X\) variables (change in minority
+move-ins, percent of population that voted republican, total treatment
+move-ins, and proportion of the zip code that is white). This tree seems
+to indicate that the total quantity of move-ins is of high importance,
+with fewer move-ins indicating higher appreciation (this is
+counterintuitive to economic intuition). In places with higher move-ins,
+the proportion of republicans is the next most important variable, with
+less republican areas experiencing higher home-value appreciation. Next
+is the treatment. ZIP Codes with a high quantity of move-ins that
+recieve a high treatment dose experience lower home-value appreciation
+than those who don't. High move-in republican ZIP codes with higher
+treatment doses have even lower home-value appreciations. In low move-in
+ZIP codes, treatment dose is the next most important, followed by
+republican proportion. The same effects are seen. The error is higher on
+this model due to the removal of many control variables.
+\begin{figure}[htbp]
+    \caption{Importance Matrix of Variables}
+    \label{imp-mat}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{../../project_files/project_136_0.png}
+\end{figure}
+    
+    Figure \ref{imp-mat} displays a bar chart which indicates that the most important variable is per
+capita income. This is followed by voting charactersitcs and
+neighborhood demographics, and then by the treatment size. It makes sense that treatment size would not be one of the most important variables, income and political affiliation could reasonably be more important for individual's preference mappings, or there could be confounding variables associated with them that changed over this period. 
+
+The results from my ML seem to run slightly contrary to our regressions,
+which indicated that income had little to no effect on home-value
+appreciation. It's possible that this is due to a slightly distinct
+\(y\) between our ML models and our regressions. In the regressions, we
+looked at the raw home value appreciation, and then added the average
+home-value appreciation in the MSA as a control term. In the ML models,
+to improve clarity, we are looking at the difference between home value
+appreciation and the average home value appreciation the MSA.
+
+My regression trees (and random forest model) allow for significantly
+more analysis of interactions between variables than my regressions, which is what leads to slightly different results.
 \section{Conclusion}
+In this paper, I analyze the link between an increase in the share of minority move-ins (a treatment) and home values on a neighborhood level. I construct a zip-code level dataset that includes, from Fannie Mae and Freddie Mac data, the share of minority move-ins in an initial period, and the share of minority move-ins in a treatment period. The data also includes Zillow data showing the change in home values. For much of the analysis, this change in home values is normalized to the average change in home values to the MSA the zip code is in. 
+
+My findings indicate a statistically significant negative relationship between an increase in minority move-ins and home-value appreication. This effect is present when normalizing for MSA-level appreciation, and is consistent with webscraped listing data in Appendix \ref{webscraped}. Interestingly, this relationship is significantly less negative in highly (top 50\%) Republican geographies. This could be due to different preference maps, or some other endogenous factor.
+
+More analysis is needed, including modfying the methodology to something more similar to an event study, to allow for more years of treatment and better consideration for treatment size. Presently, there is too much endogeneity for any causal analysis. It's possible that modifying the study structure could change that. In addition, it would be insightful to use the data and regressions to estimate values for the parameters in the rational discrimination theoretical model this analysis is based upon.
 \section{References}
+
+\begin{itemize}[label={}]
+    \item Appel, I., \& Nickerson, J. (2016). \textit{Pockets of Poverty: The Long-Term Effects of Redlining}. Retrieved from \url{https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=2852856}
+    
+    \item Arrow, K. (1971). \textit{The Theory of Discrimination}. Retrieved from \url{https://dataspace.princeton.edu/handle/88435/dsp014t64gn18f}
+    
+    \item Avetian, V. (2022). \textit{Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing}. Retrieved from \url{https://www.tse-fr.eu/sites/default/files/TSE/documents/conf/2022/echoppe/avetian.pdf}
+    
+    \item Badarinza, C., Balasubramaniam, V., \& Ramadorai, T. (2024). \textit{In Search of the Matching Function in the Housing Market}. SSRN Scholarly Paper No. 4594519. \url{https://doi.org/10.2139/ssrn.4594519}
+    
+    \item Becker, G. S. (1971). \textit{The Economics of Discrimination}. University of Chicago Press.
+    
+    \item Combes, P.-P., Decreuse, B., Laouénan, M., \& Trannoy, A. (2016). \textit{Customer Discrimination and Employment Outcomes: Theory and Evidence From the French Labor Market}. Journal of Labor Economics, 34(1), 107–160. \url{https://doi.org/10.1086/682332}
+    \item Combes, P.-P., Decreuse, B., Schmutz, B., \& Trannoy, A. (2018). Neighbor Discrimination Theory and Evidence from the French Rental Market. Journal of Urban Economics, 104, 104–123. https://doi.org/10.1016/j.jue.2018.01.002
+    
+    \item Korver-Glenn, E. (2018). \textit{Compounding Inequalities: How Racial Stereotypes and Discrimination Accumulate Across the Stages of Housing Exchange}. American Sociological Review, 83(4), 627–656. \url{https://doi.org/10.1177/0003122418781774}
+    
+    \item Manson, S., Schroeder, J., Van Riper, D., Knowles, K., Kugler, T., Roberts, F., \& Ruggles, S. (2024). \textit{National Historical Geographic Information System: Version 19.0} [Dataset]. Minneapolis, MN: IPUMS. \url{https://doi.org/10.18128/D050.V19.0}
+    
+    \item Quillian, L., Lee, J. J., \& Honoré, B. (2020). \textit{Racial Discrimination in the U.S. Housing and Mortgage Lending Markets: A Quantitative Review of Trends, 1976–2016}. Race and Social Problems, 12(1), 13–28. \url{https://doi.org/10.1007/s12552-019-09276-x}
+    
+    \item Rothstein, R. (2017). \textit{The Color of Law: A Forgotten History of How Our Government Segregated America}. Liveright Publishing Corporation, a division of W. W. Norton \& Company.
+    
+    \item Sood, A., \& Ehrman-Solberg, K. (2024). \textit{The Long Shadow of Housing Discrimination: Evidence from Racial Covenants}. Retrieved from \url{https://drive.google.com/file/d/1uLSaQxWiSHKMuckF2gFpATywQD2J7No5/}
+\end{itemize}
 \appendix
-\section{Figures}
-\section{Tables}
+\section*{Appendix}
+\section{Webscraped Data}{\label{webscraped}}
+\begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{../../project_files/project_122_1.png}
+    \end{center}
+    This map shows the set of data gathered from webscraping. Because we were scaled back to only Boston City Proper, you can see that there is significant home-value increases across the board. Unfortunately, it appears that these two times of webscraping weren't enough to remove data gaps (in fact, we have more). However, it is clear that if this script could more easily gain archival data, we would be able to fill in gaps.
+    \begin{center}
+        \adjustimage{max size={0.5\linewidth}{0.9\paperheight}}{../../project_files/project_124_0.png}
+        \end{center}
+This map shows less certainty around the relationship between treatment size and home value changes. This is likely due to the fact that we are using a small sample size of data, and that the "post-treatment" home values are after so much time. However, it does show that there is a relationship between treatment size and home value changes, which is consistent with the above regressions, maps, and plots.
+
 \end{document}
